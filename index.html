@@ -411,7 +411,7 @@ canvas{display:block}
     <div id="p8" class="pg">
       <!-- KPIs — mismo estilo que P6 -->
       <div class="krow k4" style="margin-bottom:14px" id="p8kpis">
-        <div class="kpi"><div class="kbar" style="background:#00E5A0"></div><div class="klbl">RUC Nuevos — Mayo</div><div class="kval" style="color:#00E5A0" id="k8total">—</div><div class="ksub"><span class="bge bw">Cuota: 36 RUC</span></div></div>
+        <div class="kpi"><div class="kbar" style="background:#00E5A0"></div><div class="klbl">RUC Nuevos — Mayo</div><div class="kval" style="color:#00E5A0" id="k8total">—</div><div class="ksub"><span class="bge bw">Cuota: 44 RUC</span></div></div>
         <div class="kpi"><div class="kbar" style="background:#3B82F6"></div><div class="klbl">Llegan a S/.25K</div><div class="kval" style="color:#3B82F6" id="k8ok">—</div><div class="ksub"><span class="bge" style="background:rgba(59,130,246,.15);color:#3B82F6" id="k8okpct">—</span></div></div>
         <div class="kpi"><div class="kbar" style="background:#EF4444"></div><div class="klbl">No llegan a S/.25K</div><div class="kval" style="color:#EF4444" id="k8nok">—</div><div class="ksub"><span class="bge" style="background:rgba(239,68,68,.12);color:#EF4444">Meta &gt; S/.25,000</span></div></div>
         <div class="kpi"><div class="kbar" style="background:#A855F7"></div><div class="klbl">Proyeccion total</div><div class="kval" style="color:#A855F7" id="k8proy">—</div><div class="ksub"><span class="bge bu" id="k8real">Real: —</span></div></div>
@@ -421,7 +421,7 @@ canvas{display:block}
       <div class="g2">
         <!-- Panel izquierdo: Tabla RUC -->
         <div class="panel">
-          <div class="ph"><div><div class="pt">Tabla RUC Mayo — Solo Mayo 2026</div><div class="ps">Fuente: ACTUAL_06_MAYO.xlsx · hoja RUC MAYO</div></div></div>
+          <div class="ph"><div><div class="pt">Tabla RUC Mayo — Solo Mayo 2026</div><div class="ps">Fuente: ACTUAL_17_MAYO.xlsx · hoja RUC MAYO</div></div></div>
           <div id="rucTabla" style="overflow-x:auto;max-height:520px;overflow-y:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.15) transparent"></div>
         </div>
         <!-- Panel derecho: Donut + Avance vs meta -->
@@ -1841,7 +1841,7 @@ function rC(){
 }
 
 // ── NAV ─────────────────────────────────────────────────────
-const PAGES={p1:{title:'Resumen general',sub:'Corte al 17 de Mayo 2026 · En curso',build:bP1},p2:{title:'Ranking — Solo Mayo 2026',sub:'Captura 70% + RUC 10% + QR 10% + Arisale 10% · Al dia 17 de Mayo · 13 hunters',build:bP2},p3:{title:'5 graficos de lineas por mes',sub:'Enero · Febrero · Marzo · Abril · Mayo',build:bP3},p4:{title:'Curva Mayo — Dia 17',sub:'Real dia 17 · Proy S/.3,494K',build:bP4},p5:{title:'Arisale — Solo Mayo 2026',sub:'76 lic · S/.2836 · Cuota S/.3,234',build:bP5},p6:{title:'QR Parlante — Solo Mayo 2026',sub:'4 nuevos mayo · 41 activos total · 19 pendientes',build:bP6},p7:{title:'Cuentas — Feb a May 18',sub:'Razon Social · Potencial · Ene-Feb-Mar · Abr-07·13·16·20·21·28·30 · May-17 · Proy',build:function(){updCC();rC();}},p8:{title:'RUC Nuevos — Solo Mayo 2026',sub:'42 RUC · 40 superarán S/.25K · 2 no superan · Proy S/.673K',build:bP8},pAbril:{title:'Dashboard Abril 2026',sub:'Cierre al 30 de Abril · Resumen · Ranking · Curva · Arisale · QR · Cuentas · RUC',build:function(){}}};
+const PAGES={p1:{title:'Resumen general',sub:'Corte al 17 de Mayo 2026 · En curso',build:bP1},p2:{title:'Ranking — Solo Mayo 2026',sub:'Captura 70% + RUC 10% + QR 10% + Arisale 10% · Al dia 17 de Mayo · 13 hunters',build:bP2},p3:{title:'5 graficos de lineas por mes',sub:'Enero · Febrero · Marzo · Abril · Mayo',build:bP3},p4:{title:'Curva Mayo — Dia 17',sub:'Real dia 17 · Proy S/.3,494K',build:bP4},p5:{title:'Arisale — Solo Mayo 2026',sub:'76 lic · S/.2836 · Cuota S/.3,234',build:bP5},p6:{title:'QR Parlante — Solo Mayo 2026',sub:'4 nuevos mayo · 41 activos total · 19 pendientes',build:bP6},p7:{title:'Cuentas — Feb a May 18',sub:'Razon Social · Potencial · Ene-Feb-Mar · Abr-07·13·16·20·21·28·30 · May-17 · Proy',build:function(){updCC();rC();}},p8:{title:'RUC Nuevos — Solo Mayo 2026',sub:'30 RUC · Cuota 44 · Dia 17 · Proy S/.673K',build:bP8},pAbril:{title:'Dashboard Abril 2026',sub:'Cierre al 30 de Abril · Resumen · Ranking · Curva · Arisale · QR · Cuentas · RUC',build:function(){}}};
 const done={};
 function go(id,btn){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
@@ -1852,7 +1852,7 @@ function go(id,btn){
   document.getElementById('pgS').textContent=PAGES[id]?.sub||'';
   if(!done[id]&&PAGES[id]?.build){PAGES[id].build();done[id]=true;}
 }
-initP7();bP1();bP2();done.p1=done.p2=true;updateHeaderKPIs();rC();done.p7=true;
+
 
 
 
@@ -1860,25 +1860,78 @@ initP7();bP1();bP2();done.p1=done.p2=true;updateHeaderKPIs();rC();done.p7=true;
 // -- P8 RUC MAYO --
 const RUC_MAYO_DATA=[{"h": "PATRICIA ASTORGA", "col": "#00E5A0", "r": ".MARTINEZ ANDRADE TANY STEPHANIE", "ruc": "10704429661", "pot": "S/.25K"}, {"h": "ANALIZ CASTILLO", "col": "#F59E0B", "r": "RED DE CONSORCIO DE TELECOMUNICACIONES AVANZADAS S.A.C.", "ruc": "20600237455", "pot": "S/.25K"}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "r": "TRIPLE A GROUP SOCIEDAD ANONIMA CERRADA", "ruc": "20611402768", "pot": "S/.80K"}, {"h": "PATRICIA ASTORGA", "col": "#00E5A0", "r": "Importadora Miyakawa SAC", "ruc": "20601508452", "pot": "S/.80K"}, {"h": "ANA CARRERA", "col": "#A855F7", "r": "MORE VILCHEZ CRISTOBAL", "ruc": "10401857813", "pot": "S/.25K"}, {"h": "MELISSA VASQUEZ", "col": "#FF6B6B", "r": "Talcast S.A.C.", "ruc": "20615639339", "pot": "S/.25K"}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "r": "LUCUMA CATERING SAC", "ruc": "20603193467", "pot": "S/.25K"}, {"h": "ANALIZ CASTILLO", "col": "#F59E0B", "r": "CENTRO DE DESARROLLO INTEGRAL ESTETICA Y ASESORIA EMPRESARIA", "ruc": "20609174839", "pot": "S/.80K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "ENTREMARES INTERNACIONAL S.A.C.", "ruc": "20506199825", "pot": "S/.150K"}, {"h": "ROSA TORRES", "col": "#6BCF7F", "r": "Marita La Reina EIRL", "ruc": "20614426951", "pot": "S/.25K"}, {"h": "ROCK LLANOS", "col": "#84CC16", "r": "Corporacion 3H S.A.C.", "ruc": "20611522682", "pot": "S/.80K"}, {"h": "CRISTIAN HUAMAN", "col": "#00C9FF", "r": "TOLENTINO LUCIANO ELVA LUZ", "ruc": "10800761820", "pot": "S/.25K"}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "r": "Euro Bus S.A.C.", "ruc": "20601431751", "pot": "S/.40K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "ZIMMERMANN S.A.C", "ruc": "20100349818", "pot": "S/.150K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "Vetcomir E.I.R.L.", "ruc": "20615720748", "pot": "S/.30K"}, {"h": "MELISSA VASQUEZ", "col": "#FF6B6B", "r": "Sala Mandra Producciones SAC", "ruc": "20614735806", "pot": "S/.30K"}, {"h": "ANALIZ CASTILLO", "col": "#F59E0B", "r": "CLINICA MEDICA ZEGARRA S.A.C.", "ruc": "20512867741", "pot": "S/.30K"}, {"h": "CRISTIAN HUAMAN", "col": "#00C9FF", "r": "Finisher Cafe S.A.C.", "ruc": "20612548251", "pot": "S/.30K"}, {"h": "OLIVER LOPEZ", "col": "#4ECDC4", "r": "Firenze Novios S.A.C.", "ruc": "20613328433", "pot": "S/.25K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "INVERSIONES COSSIO EIRL", "ruc": "20614142091", "pot": "S/.60K"}, {"h": "ANDREA SOTO", "col": "#FFD93D", "r": "SOLUCIONES INTEGRALES EL SIAR EMPRESA INDIVIDUAL DE RESPONSA", "ruc": "20525558682", "pot": "S/.60K"}, {"h": "ROSA TORRES", "col": "#6BCF7F", "r": "Casa Peluchin Studio S.A.C.", "ruc": "20615844536", "pot": "S/.60K"}, {"h": "PATRICIA ASTORGA", "col": "#00E5A0", "r": "MASAMAMA SOCIEDAD ANONIMA CERDADA - MASAMAMA S.A.C.", "ruc": "20603278446", "pot": "S/.30K"}, {"h": "ANDREA SOTO", "col": "#FFD93D", "r": "Montes & Taboada S.A.C.", "ruc": "20611771941", "pot": "S/.30K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "Vetcosur E.I.R.L.", "ruc": "20615718182", "pot": "S/.30K"}, {"h": "PATRICIA ASTORGA", "col": "#00E5A0", "r": "LE REVE S A C", "ruc": "20518166337", "pot": "S/.30K"}, {"h": "ANALIZ CASTILLO", "col": "#F59E0B", "r": "GIOVANNA KARINA MELENDEZ CHAVEZ", "ruc": "10409566303", "pot": "S/.30K"}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "r": "MORENO MEDINA ERIKA ELIZABETH", "ruc": "10068039342", "pot": "S/.30K"}, {"h": "PATRICIA ASTORGA", "col": "#00E5A0", "r": "Salazar Seminario Cesar Roberto", "ruc": "10458451031", "pot": "S/.30K"}, {"h": "YASMIN CHECA", "col": "#888780", "r": "TITO CUEVAS ODILIA", "ruc": "10154265118", "pot": "S/.30K"}];
 function bP8(){
-  const _ruc=RUC_MAYO_DATA.filter(r=>inTeam(r.h));
-  document.getElementById('k8total').textContent=_ruc.length;
-  document.getElementById('k8ok').textContent=_ruc.length;
-  document.getElementById('k8okpct').textContent='100%';
-  document.getElementById('k8nok').textContent=0;
-  document.getElementById('k8proy').textContent='S/.865K';
-  document.getElementById('k8real').textContent='Potencial estimado';
-  const _byH=Object.values(_ruc.reduce((acc,r)=>{if(!acc[r.h])acc[r.h]={n:r.h,col:r.col,cnt:0};acc[r.h].cnt++;return acc;},{}));
-  document.getElementById('rucMeta').innerHTML=_byH.map(r=>{const pct=Math.min(100,Math.round(r.cnt/3*100));const col=pct>=100?'#00E5A0':pct>=66?'#F59E0B':'#EF4444';return`<div style="margin-bottom:7px"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:${r.col}"></div><span style="font-size:10px;color:var(--t1)">${r.n}</span></div><span style="font-size:10px;font-family:var(--m);color:${col}">${r.cnt} RUC</span></div><div style="height:5px;background:rgba(0,0,0,.07);border-radius:3px;overflow:hidden"><div style="width:${pct}%;height:100%;background:${col};border-radius:3px"></div></div><div style="font-size:9px;color:var(--t3)">${pct>=100?'Meta cumplida':'Faltan '+(3-Math.min(3,r.cnt))}</div></div>`;}).join('');
-  document.getElementById('rucTabla').innerHTML='<table style="width:100%;border-collapse:collapse;font-size:11px"><thead><tr><th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:left">Hunter</th><th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:left">Razon Social</th><th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:right">Potencial</th></tr></thead><tbody>'
-    +_ruc.map(r=>`<tr><td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05)"><span style="font-size:11px;font-weight:600;color:${r.col}">${r.h}</span></td><td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05);font-size:10px;color:var(--t2)">${r.r}</td><td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05);font-size:11px;font-weight:700;color:#00E5A0;text-align:right">${r.pot}</td></tr>`).join('')
-    +`<tr><td colspan="2" style="padding:10px 0;border-top:2px solid rgba(0,0,0,.08);font-weight:600;color:var(--t2)">Total ${_ruc.length} RUC</td><td style="padding:10px 0;border-top:2px solid rgba(0,0,0,.08);font-weight:700;color:#00E5A0;text-align:right">${_ruc.length}/36</td></tr>`
+  var _ruc=RUC_MAYO_DATA.filter(function(r){return inTeam(r.h);});
+  var _total=_ruc.length;
+  var _el=function(id){return document.getElementById(id);};
+
+  // KPI chips
+  if(_el('k8total'))_el('k8total').textContent=_total;
+  if(_el('k8ok'))_el('k8ok').textContent=_total;
+  if(_el('k8okpct'))_el('k8okpct').textContent=Math.round(_total/44*100)+'%';
+  if(_el('k8nok'))_el('k8nok').textContent=44-_total;
+  if(_el('k8proy'))_el('k8proy').textContent='S/.'+Math.round(_total*25.17)+'K';
+
+  // Progress by hunter
+  var _byH={};
+  _ruc.forEach(function(r){
+    if(!_byH[r.h]) _byH[r.h]={n:r.h,col:r.col,cnt:0};
+    _byH[r.h].cnt++;
+  });
+  var _byHArr=Object.values(_byH);
+  if(_el('rucMeta')) _el('rucMeta').innerHTML=_byHArr.map(function(r){
+    var pct=Math.min(100,Math.round(r.cnt/3*100));
+    var col=pct>=100?'#00E5A0':pct>=66?'#F59E0B':'#EF4444';
+    return '<div style="margin-bottom:7px">'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:2px">'
+      +'<div style="display:flex;align-items:center;gap:6px">'
+      +'<div style="width:8px;height:8px;border-radius:50%;background:'+r.col+'"></div>'
+      +'<span style="font-size:10px;color:var(--t1)">'+r.n+'</span></div>'
+      +'<span style="font-size:10px;font-family:var(--m);color:'+col+'">'+r.cnt+' RUC</span></div>'
+      +'<div style="height:5px;background:rgba(0,0,0,.07);border-radius:3px;overflow:hidden">'
+      +'<div style="width:'+pct+'%;height:100%;background:'+col+';border-radius:3px"></div></div>'
+      +'<div style="font-size:9px;color:var(--t3)">'+(pct>=100?'Meta cumplida ✅':'Faltan '+(3-Math.min(3,r.cnt))+'</div></div>');
+  }).join('');
+
+  // RUC table
+  if(_el('rucTabla')) _el('rucTabla').innerHTML=
+    '<table style="width:100%;border-collapse:collapse;font-size:11px">'
+    +'<thead><tr>'
+    +'<th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:left">Hunter</th>'
+    +'<th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:left">Razon Social</th>'
+    +'<th style="font-size:9px;text-transform:uppercase;color:var(--t3);padding:0 0 10px;text-align:right">Potencial</th>'
+    +'</tr></thead><tbody>'
+    +_ruc.map(function(r){
+      return '<tr>'
+        +'<td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05)">'
+        +'<span style="font-size:11px;font-weight:600;color:'+r.col+'">'+r.h+'</span></td>'
+        +'<td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05);font-size:10px;color:var(--t2)">'+r.r+'</td>'
+        +'<td style="padding:7px 0;border-top:1px solid rgba(0,0,0,.05);font-size:11px;font-weight:700;color:#00E5A0;text-align:right">'+r.pot+'</td>'
+        +'</tr>';
+    }).join('')
+    +'<tr><td colspan="2" style="padding:10px 0;border-top:2px solid rgba(0,0,0,.08);font-weight:600;color:var(--t2)">Total '+_total+' RUC</td>'
+    +'<td style="padding:10px 0;border-top:2px solid rgba(0,0,0,.08);font-weight:700;color:#00E5A0;text-align:right">'+_total+'/44</td></tr>'
     +'</tbody></table>';
-  dc('cRUCd');CHS['cRUCd']=new Chart(document.getElementById('cRUCd'),{type:'doughnut',data:{labels:_byH.map(r=>r.n.split(' ')[0]+' x'+r.cnt),datasets:[{data:_byH.map(r=>r.cnt),backgroundColor:_byH.map(r=>r.col+'CC'),borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{font:{size:10,family:'Outfit'},color:'#606F7B',boxWidth:10,padding:6}},tooltip:{callbacks:{label:x=>x.label},backgroundColor:'#FFFFFF'}}}});
-  document.getElementById('rucNokSub').textContent='';
-  document.getElementById('rucNokCards').innerHTML='';
-  
+
+  // Donut chart
+  dc('cRUCd');
+  CHS['cRUCd']=new Chart(document.getElementById('cRUCd'),{
+    type:'doughnut',
+    data:{
+      labels:_byHArr.map(function(r){return r.n.split(' ')[0]+' x'+r.cnt;}),
+      datasets:[{data:_byHArr.map(function(r){return r.cnt;}),
+        backgroundColor:_byHArr.map(function(r){return r.col+'CC';}),borderWidth:0}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{
+        legend:{position:'right',labels:{font:{size:10,family:'Outfit'},color:'#606F7B',boxWidth:10,padding:6}},
+        tooltip:{callbacks:{label:function(x){return x.label;}},backgroundColor:'#FFFFFF'}
+      }
+    }
+  });
+  if(_el('rucNokSub'))_el('rucNokSub').textContent='';
+  if(_el('rucNokCards'))_el('rucNokCards').innerHTML='';
 }
 
-</script>
+initP7();bP1();bP2();done.p1=done.p2=true;updateHeaderKPIs();rC();done.p7=true;</script>
 </body>
 </html>
