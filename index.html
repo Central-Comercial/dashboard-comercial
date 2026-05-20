@@ -171,7 +171,7 @@ canvas{display:block}
         <button class="tab-btn" onclick="go('p8',this)">RUC Mayo</button>
         <button class="tab-btn" onclick="go('pAbril',this)" style="background:linear-gradient(135deg,rgba(26,31,94,.15),rgba(65,105,225,.1));color:#4169E1;font-weight:700;border:1px solid rgba(65,105,225,.25)">📅 Dashboard Abril</button>
       </div>
-      <div class="chip-live" style="background:rgba(14,165,233,.15);color:#0EA5E9;border:1px solid rgba(14,165,233,.3)"><div class="dot-live"></div>MAY-10</div>
+      <div class="chip-live" style="background:rgba(14,165,233,.15);color:#0EA5E9;border:1px solid rgba(14,165,233,.3)"><div class="dot-live"></div>MAY-17</div>
     </div>
   </div>
 
@@ -1028,34 +1028,34 @@ bP1();bP2();done.p1=done.p2=true;
 
 <script>
 const RANK=[
-  {pos:1,n:'CRISTIAN HUAMAN',ini:'CH',t:'JUNIOR',tenure:'2 MESES',score:98.5,incr:109.8,incrVal:274406.11,rucPct:100.0,rucN:3,qrPct:50.0,qrN:1.5,arisPct:66.7,arisVal:120.00,badge:'TOP PERFORMER',col:'#00C9FF',ms:[117897,234172,293831,343792,515455,548160],as:[0,-296830,-79365]},
-  {pos:2,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',tenure:'2 AÑOS Y 5 MESES',score:78.2,incr:70.9,incrVal:198395.18,rucPct:155.6,rucN:4.7,qrPct:66.7,qrN:2,arisPct:63.6,arisVal:152.67,badge:'',col:'#4ECDC4',ms:[1995,72862,232927,272815,450979,449808],as:[0,-408369,-230348]},
-  {pos:3,n:'ANA CARRERA',ini:'AC',t:'SENIOR',tenure:'1 AÑO Y 7 MESES',score:78.0,incr:56.4,incrVal:157945.15,rucPct:183.3,rucN:5.5,qrPct:116.7,qrN:3.5,arisPct:84.8,arisVal:203.50,badge:'',col:'#A855F7',ms:[407,407,197036,221529,312046,391758],as:[0,-126719,-23475]},
-  {pos:4,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',tenure:'1 AÑO Y 1 MES',score:69.0,incr:56.8,incrVal:159170.09,rucPct:177.8,rucN:5.3,qrPct:88.9,qrN:2.7,arisPct:25.0,arisVal:60.00,badge:'',col:'#00E5A0',ms:[102226,112475,220202,267236,331951,344072],as:[0,-396816,-299800]},
-  {pos:5,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',tenure:'1 AÑO',score:63.6,incr:62.2,incrVal:174227.71,rucPct:88.9,rucN:2.7,qrPct:111.1,qrN:3.3,arisPct:0.0,arisVal:0,badge:'',col:'#FF6B6B',ms:[51985,78775,382262,417158,539556,569436],as:[0,-323446,-181878]},
-  {pos:6,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',tenure:'3 MESES',score:57.0,incr:51.2,incrVal:143425.71,rucPct:111.1,rucN:3.3,qrPct:100.0,qrN:3,arisPct:0.0,arisVal:0,badge:'',col:'#FFD93D',ms:[106890,274989,271081,294778,371837,391042],as:[0,-302433,-173009]},
-  {pos:7,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',tenure:'1 AÑO Y 2 MESES',score:50.1,incr:13.0,incrVal:36440.16,rucPct:133.3,rucN:4,qrPct:100.0,qrN:3,arisPct:176.9,arisVal:424.67,badge:'',col:'#FF8C42',ms:[-39312,-1542,-93460,-86876,-64695,-68254],as:[0,-76856,-66831]},
-  {pos:8,n:'ROSA TORRES',ini:'RT',t:'SENIOR',tenure:'1 AÑO Y 2 MESES',score:30.0,incr:11.0,incrVal:30791.97,rucPct:44.4,rucN:1.3,qrPct:122.2,qrN:3.7,arisPct:56.4,arisVal:135.33,badge:'',col:'#6BCF7F',ms:[9824,11102,12133,15733,32110,37560],as:[0,-76320,-22690]},
-  {pos:9,n:'ANALIZ CASTILLO',ini:'AZ',t:'SENIOR',tenure:'1 AÑO',score:26.2,incr:16.8,incrVal:47020.82,rucPct:44.4,rucN:1.3,qrPct:100.0,qrN:3,arisPct:0.0,arisVal:0,badge:'',col:'#F59E0B',ms:[51306,65964,-154488,-70316,-49612,-30964],as:[0,-101694,-74525]},
-  {pos:10,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',tenure:'10 MESES',score:23.8,incr:12.2,incrVal:34238.26,rucPct:44.4,rucN:1.3,qrPct:100.0,qrN:3,arisPct:8.3,arisVal:20.00,badge:'',col:'#FF6B9D',ms:[5884,20328,47087,58447,95613,100817],as:[0,-59070,-20793]},
-  {pos:11,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',tenure:'HUNTER NUEVO',score:16.7,incr:0.0,incrVal:0,rucPct:33.3,rucN:1,qrPct:133.3,qrN:4,arisPct:0.0,arisVal:0,badge:'HUNTER NUEVO',col:'#888780',ms:[0,0,0,0,0,0],as:[0,0,0]},
-  {pos:12,n:'JOEL BLAS',ini:'JB',t:'SENIOR',tenure:'1 AÑO Y 4 MESES',score:5.6,incr:0.1,incrVal:148.35,rucPct:33.3,rucN:1,qrPct:22.2,qrN:0.7,arisPct:0.0,arisVal:0,badge:'',col:'#3B82F6',ms:[248,655,-63898,-63884,-50306,-50936],as:[0,358,-79]},
-  {pos:14,n:'FRANCO ROUILLON',ini:'FR',t:'JUNIOR',tenure:'HUNTER NUEVO',score:0,incr:0,incrVal:0,rucPct:0,rucN:0,qrPct:0,qrN:0,arisPct:0,arisVal:0,badge:'',col:'#F97316',ms:[0,0,0,0,0,0],as:[0,0,0]},
+  {pos:1,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',tenure:'1 AÑO Y 2 MESES',score:100.3,incr:92.7,incrVal:235199.36,rucPct:133.3,rucN:4,qrPct:100.0,qrN:3,arisPct:120.4,arisVal:289,badge:'TOP PERFORMER',col:'#FF8C42',ms:[-39312,-1542,-93460,-86876,-64695,-68254],as:[0,-76856,-66831]},
+  {pos:2,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',tenure:'HUNTER NUEVO',score:45.0,incr:26.2,incrVal:66541.72,rucPct:200.0,rucN:6,qrPct:66.7,qrN:2,arisPct:0.0,arisVal:0,badge:'',col:'#888780',ms:[0,0,0,0,0,0],as:[0,0,0]},
+  {pos:3,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',tenure:'1 AÑO Y 1 MES',score:73.0,incr:17.0,incrVal:43154.21,rucPct:166.7,rucN:5,qrPct:33.3,qrN:1,arisPct:411.2,arisVal:987,badge:'',col:'#00E5A0',ms:[102226,112475,220202,267236,331951,344072],as:[0,-396816,-299800]},
+  {pos:4,n:'ANA CARRERA',ini:'AC',t:'SENIOR',tenure:'1 AÑO Y 7 MESES',score:14.8,incr:6.8,incrVal:17260.88,rucPct:33.3,rucN:1,qrPct:66.7,qrN:2,arisPct:0.0,arisVal:0,badge:'',col:'#A855F7',ms:[407,407,197036,221529,312046,391758],as:[0,-126719,-23475]},
+  {pos:5,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',tenure:'1 AÑO',score:20.4,incr:1.8,incrVal:4450.94,rucPct:66.7,rucN:2,qrPct:0.0,qrN:0,arisPct:125.0,arisVal:300,badge:'',col:'#FF6B6B',ms:[51985,78775,382262,417158,539556,569436],as:[0,-323446,-181878]},
+  {pos:6,n:'ANALIZ CASTILLO',ini:'AZ',t:'JUNIOR',tenure:'1 AÑO',score:27.4,incr:1.0,incrVal:2431.86,rucPct:133.3,rucN:4,qrPct:66.7,qrN:2,arisPct:66.7,arisVal:120,badge:'',col:'#F59E0B',ms:[51306,65964,-154488,-70316,-49612,-30964],as:[0,-101694,-74525]},
+  {pos:7,n:'ROSA TORRES',ini:'RT',t:'SENIOR',tenure:'1 AÑO Y 2 MESES',score:17.1,incr:0.6,incrVal:1457.33,rucPct:66.7,rucN:2,qrPct:0.0,qrN:0,arisPct:100.0,arisVal:240,badge:'',col:'#6BCF7F',ms:[9824,11102,12133,15733,32110,37560],as:[0,-76320,-22690]},
+  {pos:8,n:'CRISTIAN HUAMAN',ini:'CH',t:'JUNIOR',tenure:'2 MESES',score:46.1,incr:0.0,incrVal:0.36,rucPct:66.7,rucN:2,qrPct:200.0,qrN:6,arisPct:193.9,arisVal:349,badge:'TOP PERFORMER',col:'#00C9FF',ms:[117897,234172,293831,343792,515455,548160],as:[0,-296830,-79365]},
+  {pos:9,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',tenure:'2 AÑOS Y 5 MESES',score:6.7,incr:0,incrVal:0.0,rucPct:33.3,rucN:1,qrPct:33.3,qrN:1,arisPct:0.0,arisVal:0,badge:'',col:'#4ECDC4',ms:[1995,72862,232927,272815,450979,449808],as:[0,-408369,-230348]},
+  {pos:10,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',tenure:'3 MESES',score:17.5,incr:0,incrVal:0.0,rucPct:66.7,rucN:2,qrPct:33.3,qrN:1,arisPct:75.0,arisVal:180,badge:'',col:'#FFD93D',ms:[106890,274989,271081,294778,371837,391042],as:[0,-302433,-173009]},
+  {pos:11,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',tenure:'10 MESES',score:13.3,incr:0,incrVal:0,rucPct:0.0,rucN:0,qrPct:133.3,qrN:4,arisPct:0.0,arisVal:0,badge:'',col:'#FF6B9D',ms:[5884,20328,47087,58447,95613,100817],as:[0,-59070,-20793]},
+  {pos:12,n:'JOEL BLAS',ini:'JB',t:'SENIOR',tenure:'1 AÑO Y 4 MESES',score:0.0,incr:0,incrVal:0,rucPct:0.0,rucN:0,qrPct:0.0,qrN:0,arisPct:0.0,arisVal:0,badge:'',col:'#3B82F6',ms:[248,655,-63898,-63884,-50306,-50936],as:[0,358,-79]},
+  {pos:13,n:'FRANCO ROUILLON',ini:'FR',t:'JUNIOR',tenure:'HUNTER NUEVO',score:16.7,incr:0,incrVal:0,rucPct:0.0,rucN:0,qrPct:0.0,qrN:0,arisPct:166.7,arisVal:300,badge:'',col:'#F97316',ms:[0,0,0,0,0,0],as:[0,0,0]},
 ];
 const RANK_ABR=[
-  {pos:1,n:'ANALIZ CASTILLO',ini:'AC',t:'SENIOR',col:'#F59E0B',tenure:'1 ANO 2 MESES',score:207.3,incr_pct:240.1,incr_val:672398,ruc_pct:66.7,ruc_n:2,qr_pct:200.0,qr_n:6,aris_pct:125.0,aris_val:300,badge:''},
-  {pos:2,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',col:'#FF6B6B',tenure:'1 ANO 2 MESES',score:164.2,incr_pct:201.3,incr_val:563655,ruc_pct:33.3,ruc_n:1,qr_pct:200.0,qr_n:6,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:3,n:'CRISTIAN HUAMAN',ini:'CH',t:'SENIOR',col:'#00C9FF',tenure:'4 MESES',score:161.1,incr_pct:178.7,incr_val:446673,ruc_pct:33.3,ruc_n:1,qr_pct:200.0,qr_n:6,aris_pct:127.2,aris_val:229,badge:''},
-  {pos:4,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',col:'#FF8C42',tenure:'1 ANO 4 MESES',score:141.7,incr_pct:165.6,incr_val:463589,ruc_pct:100.0,ruc_n:3,qr_pct:133.3,qr_n:4,aris_pct:25.0,aris_val:60,badge:''},
-  {pos:5,n:'ROSA TORRES',ini:'RT',t:'SENIOR',col:'#6BCF7F',tenure:'1 ANO 4 MESES',score:104.1,incr_pct:120.2,incr_val:336432,ruc_pct:33.3,ruc_n:1,qr_pct:166.7,qr_n:5,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:6,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',col:'#4ECDC4',tenure:'2 ANOS 7 MESES',score:97.4,incr_pct:129.6,incr_val:363014,ruc_pct:0.0,ruc_n:0,qr_pct:66.7,qr_n:2,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:7,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',col:'#00E5A0',tenure:'1 ANO 3 MESES',score:95.8,incr_pct:93.9,incr_val:263040,ruc_pct:66.7,ruc_n:2,qr_pct:233.3,qr_n:7,aris_pct:0.0,aris_val:0,badge:''},
+  {pos:1,n:'ANALIZ CASTILLO',ini:'AC',t:'SENIOR',col:'#F59E0B',tenure:'1 ANO 2 MESES',score:207.3,incr_pct:240.1,incr_val:672398,ruc_pct:133.3,ruc_n:4,qr_pct:66.7,qr_n:2,aris_pct:66.7,aris_val:120,badge:''},
+  {pos:2,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',col:'#FF6B6B',tenure:'1 ANO 2 MESES',score:164.2,incr_pct:201.3,incr_val:563655,ruc_pct:66.7,ruc_n:2,qr_pct:0.0,qr_n:0,aris_pct:125.0,aris_val:300,badge:''},
+  {pos:3,n:'CRISTIAN HUAMAN',ini:'CH',t:'SENIOR',col:'#00C9FF',tenure:'4 MESES',score:161.1,incr_pct:178.7,incr_val:446673,ruc_pct:66.7,ruc_n:2,qr_pct:200.0,qr_n:6,aris_pct:193.9,aris_val:349,badge:''},
+  {pos:4,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',col:'#FF8C42',tenure:'1 ANO 4 MESES',score:141.7,incr_pct:165.6,incr_val:463589,ruc_pct:133.3,ruc_n:4,qr_pct:100.0,qr_n:3,aris_pct:120.4,aris_val:289,badge:''},
+  {pos:5,n:'ROSA TORRES',ini:'RT',t:'SENIOR',col:'#6BCF7F',tenure:'1 ANO 4 MESES',score:104.1,incr_pct:120.2,incr_val:336432,ruc_pct:66.7,ruc_n:2,qr_pct:0.0,qr_n:0,aris_pct:100.0,aris_val:240,badge:''},
+  {pos:6,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',col:'#4ECDC4',tenure:'2 ANOS 7 MESES',score:97.4,incr_pct:129.6,incr_val:363014,ruc_pct:33.3,ruc_n:1,qr_pct:33.3,qr_n:1,aris_pct:0.0,aris_val:0,badge:''},
+  {pos:7,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',col:'#00E5A0',tenure:'1 ANO 3 MESES',score:95.8,incr_pct:93.9,incr_val:263040,ruc_pct:166.7,ruc_n:5,qr_pct:33.3,qr_n:1,aris_pct:411.2,aris_val:987,badge:''},
   {pos:8,n:'ROCK LLANOS',ini:'RL',t:'JUNIOR',col:'#84CC16',tenure:'HUNTER NUEVO',score:47.7,incr_pct:63.4,incr_val:114051,ruc_pct:33.3,ruc_n:1,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
-  {pos:9,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',col:'#FF6B9D',tenure:'1 ANO',score:33.7,incr_pct:33.9,incr_val:94828,ruc_pct:0.0,ruc_n:0,qr_pct:100.0,qr_n:3,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:10,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',col:'#FFD93D',tenure:'5 MESES',score:29.6,incr_pct:4.1,incr_val:11550,ruc_pct:0.0,ruc_n:0,qr_pct:266.7,qr_n:8,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:11,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',col:'#888780',tenure:'HUNTER NUEVO',score:26.7,incr_pct:0.0,incr_val:3,ruc_pct:100.0,ruc_n:3,qr_pct:166.7,qr_n:5,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
+  {pos:9,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',col:'#FF6B9D',tenure:'1 ANO',score:33.7,incr_pct:33.9,incr_val:94828,ruc_pct:0.0,ruc_n:0,qr_pct:133.3,qr_n:4,aris_pct:0.0,aris_val:0,badge:''},
+  {pos:10,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',col:'#FFD93D',tenure:'5 MESES',score:29.6,incr_pct:4.1,incr_val:11550,ruc_pct:66.7,ruc_n:2,qr_pct:33.3,qr_n:1,aris_pct:75.0,aris_val:180,badge:''},
+  {pos:11,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',col:'#888780',tenure:'HUNTER NUEVO',score:26.7,incr_pct:0.0,incr_val:3,ruc_pct:200.0,ruc_n:6,qr_pct:66.7,qr_n:2,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
   {pos:12,n:'KEVIN PAULINO',ini:'KP',t:'JUNIOR',col:'#06B6D4',tenure:'HUNTER NUEVO',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
-  {pos:13,n:'MARIA FLORES',ini:'MF',t:'JUNIOR',col:'#EC4899',tenure:'HUNTER NUEVO',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'}
+  {pos:13,n:'MARIA FLORES',ini:'MF',t:'JUNIOR',col:'#EC4899',tenure:'HUNTER NUEVO',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:33.3,aris_val:60,badge:'HUNTER NUEVO'},
 ];
 const ARIS_ACU=[{n:'ANA CARRERA',col:'#A855F7',val:660,meta:240},{n:'PATRICIA ASTORGA',col:'#00E5A0',val:409,meta:240},{n:'OLIVER LOPEZ',col:'#4ECDC4',val:406,meta:240},{n:'CRISTIAN HUAMAN',col:'#00C9FF',val:120,meta:180},{n:'MELISA LLACCHUAS',col:'#FF6B9D',val:120,meta:240},{n:'MELISSA VASQUEZ',col:'#FF6B6B',val:120,meta:240},{n:'ANALIZ CASTILLO',col:'#F59E0B',val:60,meta:240},{n:'ALICIA QUINONES',col:'#FF8C42',val:60,meta:240}];
 const QR_PEND=[['Quinones','Cahoba Inversiones S.A.C.'],['Torres','Torres Sotelo Ana Maria'],['Torres','Marcos Antonio Martinez Chacon'],['Carrera','Elizabeth Maribel Salazar Espinoza'],['Lopez','Angel Eliott Ochoa Leon'],['Llacchuas','Vilcayauri Melo Jesus Fernando'],['Carrera','Jose Jairo Mamani Mamani'],['Lopez','Jose Jairo Mamani Mamani'],['Carrera','Ayala Salcedo Edmit'],['Carrera','Aguilar Cerdan Gerardo'],['Soto','Comercial Plaza Chachapoyas SRL'],['Castillo','Ana Melva Flores Arana'],['Vasquez','Vicente Moreno Danny Raul']];
