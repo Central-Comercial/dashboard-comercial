@@ -231,11 +231,11 @@ canvas{display:block}
 
         <div class="kpi"><div class="kbar" style="background:#F59E0B"></div>
           <div class="klbl">QR MAYO</div>
-          <div id="hdrQrVal" class="kval" style="color:#00E5A0">44</div>
+          <div id="hdrQrVal" class="kval" style="color:#00E5A0">36</div>
           <div class="ksub" style="flex-direction:column;align-items:flex-start;gap:3px">
             <span class="bge bw">Cuota: 44 QR</span>
-            <div style="width:100%;height:4px;background:rgba(0,0,0,.07);border-radius:2px"><div id="hdrQrBar" style="width:100%;background:#00E5A0;border-radius:2px"></div></div>
-            <span id="hdrQrSub" style="font-size:10px;color:#00E5A0;font-weight:600">100% · 44 nuevos Mayo · Dia 21</span>
+            <div style="width:100%;height:4px;background:rgba(0,0,0,.07);border-radius:2px"><div id="hdrQrBar" style="width:81.8%;background:#00E5A0;border-radius:2px"></div></div>
+            <span id="hdrQrSub" style="font-size:10px;color:#00E5A0;font-weight:600">81.8% · 36 activos · Dia 21</span>
           </div>
         </div>
 
@@ -1203,13 +1203,13 @@ function updateHeaderKPIs(){
   if(_el('hdrRucSub'))_el('hdrRucSub').textContent=_rucPct+'% · '+_rucN+' RUC · Dia 21 en curso';
 
   // QR MAYO
-  var _qrN=(typeof QP_GLOBAL!=='undefined')?QP_GLOBAL.filter(function(q){return inTeam(q.n);}).reduce(function(s,q){return s+q.act+q.pend;},0):44;
+  var _qrN=36;// total activos Mayo+Abril
   var _qrAct=(typeof QP_GLOBAL!=='undefined')?QP_GLOBAL.filter(function(q){return inTeam(q.n);}).reduce(function(s,q){return s+q.act;},0):25;
   var _qrPend=_qrN-_qrAct;
   var _qrQ=44;var _qrPct=Math.round(_qrN/_qrQ*100);
   if(_el('hdrQrVal'))_el('hdrQrVal').textContent=_qrN;
   if(_el('hdrQrBar'))_el('hdrQrBar').style.width=Math.min(100,_qrPct)+'%';
-  if(_el('hdrQrSub'))_el('hdrQrSub').textContent=_qrPct+'% · '+_qrN+' nuevos Mayo · Dia 21';
+  if(_el('hdrQrSub'))_el('hdrQrSub').textContent=_qrPct+'% · '+_qrN+' activos · Dia 21';
   if(_el('p6KNuevoVal'))_el('p6KNuevoVal').textContent=_qrN+' ('+_qrAct+' act.)';
   if(_el('p6KActVal'))_el('p6KActVal').textContent=_qrAct;
   if(_el('p6KPendVal'))_el('p6KPendVal').textContent=_qrPend;
