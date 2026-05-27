@@ -1193,11 +1193,28 @@ const ARIS_MAYO=[
 
 
 //    updateHeaderKPIs   recalculates header chips by current team           
+function updateQRKPIs(){
+  var _t=currentTeam||'all';
+  var _el2=function(id){return document.getElementById(id);};
+  var _qrTotMap={all:63,carlos:21,ana:42};
+  var _qrActMap={all:47,carlos:16,ana:31};
+  var _qrPendMap={all:16,carlos:5,ana:11};
+  var _tot=_qrTotMap[_t]||_qrTotMap.all;
+  var _act=_qrActMap[_t]||_qrActMap.all;
+  var _pend=_qrPendMap[_t]||_qrPendMap.all;
+  if(_el2('p6KNuevoVal'))_el2('p6KNuevoVal').textContent=_tot;
+  if(_el2('p6KNuevoSub'))_el2('p6KNuevoSub').textContent='Cuota: 44 QR';
+  if(_el2('p6KActVal'))_el2('p6KActVal').textContent=_act;
+  if(_el2('p6KActSub'))_el2('p6KActSub').textContent='Activos Mayo+Abril';
+  if(_el2('p6KPendVal'))_el2('p6KPendVal').textContent=_pend;
+  if(_el2('p6KPendSub'))_el2('p6KPendSub').textContent='Pendientes Mayo+Abril';
+}
 function updateHeaderKPIs(){
   var _fmt=function(v){var a=Math.abs(v);var s=v<0?'-':'';return 'S/.'+s+(a>=1e6?(a/1e6).toFixed(2)+'M':a>=1000?Math.round(a/1000)+'K':a.toFixed(0));};
   var _el=function(id){return document.getElementById(id);};
+  var _t=currentTeam||'all';
 
-  // RUC — solo filas MAYO
+  // RUC — filtrado por equipo desde CTS2
   var _rucDat;try{_rucDat=RUC_MAYO_DATA;}catch(e){_rucDat=[];}
   var _rucN=(typeof CTS2!=='undefined')?CTS2.filter(function(r){return inTeam(r.h)&&r.mes==='Mayo';}).length:_rucDat.filter(function(r){return inTeam(r.h)&&r.mes==='MAY';}).length;
   var _rucQ=44;var _rucPct=Math.round(_rucN/_rucQ*100);
@@ -1205,17 +1222,18 @@ function updateHeaderKPIs(){
   if(_el('hdrRucBar'))_el('hdrRucBar').style.width=Math.min(100,_rucPct)+'%';
   if(_el('hdrRucSub'))_el('hdrRucSub').textContent=_rucPct+'% · '+_rucN+' RUC · Dia 24 en curso';
 
-  // QR MAYO
-  var _qrN=47;// total activos Mayo+Abril
-  var _qrAct=(typeof QP_GLOBAL!=='undefined')?QP_GLOBAL.filter(function(q){return inTeam(q.n);}).reduce(function(s,q){return s+q.act;},0):25;
-  var _qrPend=_qrN-_qrAct;
-  var _qrQ=44;var _qrPct=Math.round(_qrN/_qrQ*100);
+  // QR MAYO — filtrado por equipo
+  updateQRKPIs();
+  var _qrMap={all:63,carlos:21,ana:42};
+  var _qrActMap={all:47,carlos:16,ana:31};
+  var _qrPendMap={all:16,carlos:5,ana:11};
+  var _qrN=_qrMap[_t]||_qrMap.all;
+  var _qrAct=_qrActMap[_t]||_qrActMap.all;
+  var _qrPend=_qrPendMap[_t]||_qrPendMap.all;
+  var _qrQ=44;var _qrPct=Math.round(_qrAct/_qrQ*100);
   if(_el('hdrQrVal'))_el('hdrQrVal').textContent=_qrN;
   if(_el('hdrQrBar'))_el('hdrQrBar').style.width=Math.min(100,_qrPct)+'%';
-  if(_el('hdrQrSub'))_el('hdrQrSub').textContent=_qrPct+'% · '+_qrN+' activos · Dia 24';
-  if(_el('p6KNuevoVal'))_el('p6KNuevoVal').textContent=_qrN+' ('+_qrAct+' act.)';
-  if(_el('p6KActVal'))_el('p6KActVal').textContent=_qrAct;
-  if(_el('p6KPendVal'))_el('p6KPendVal').textContent=_qrPend;
+  if(_el('hdrQrSub'))_el('hdrQrSub').textContent=_qrPct+'% · '+_qrAct+' activos · Dia 24';
 
   // ARISALE
   var _arisDat;try{_arisDat=ARIS_MAYO;}catch(e){_arisDat=[];}
@@ -1231,9 +1249,14 @@ function updateHeaderKPIs(){
   if(_el('hdrArisTotBar'))_el('hdrArisTotBar').style.width=Math.min(100,_arisPct)+'%';
   if(_el('hdrArisTotSub'))_el('hdrArisTotSub').textContent=_arisPct+'% · '+_arisLic+' lic · S/.'+_arisTotal.toLocaleString();
 
-  // REAL + PROYECTADO
+  // REAL May-24 — filtrado por equipo
+  var _realMap={all:1486975,carlos:157481,ana:385408};
+  var _realVal=_realMap[_t]||_realMap.all;
+  if(_el('hdrRealVal'))_el('hdrRealVal').textContent='S/.'+Math.round(_realVal).toLocaleString();
+
+  // PROYECTADO — filtrado por equipo
   var _proyMap={all:3703807,carlos:203413,ana:497819};
-  var _proyVal=_proyMap[currentTeam]||_proyMap.all;
+  var _proyVal=_proyMap[_t]||_proyMap.all;
   var _pct=Math.round(_proyVal/3300000*100);
   if(_el('hdrRealSub'))_el('hdrRealSub').textContent=_pct+'% · Proy: '+_fmt(_proyVal);
   if(_el('hdrRealBar'))_el('hdrRealBar').style.width=Math.min(100,_pct)+'%';
@@ -1778,17 +1801,9 @@ function bP6(){
     const _mA2=_act2.reduce((s,r)=>s+(parseFloat(r[3].replace(/[^0-9.]/g,''))||0),0);
     const _mN2=_nma2.reduce((s,r)=>s+(parseFloat(r[3].replace(/[^0-9.]/g,''))||0),0);
     const _el2=id=>document.getElementById(id);
-    // Compute totals from _fr directly
-    var _kActivos=47;
-    var _kPend=16;
-    var _kTotal=63;
-    var _kMayoAct=35;
-    if(_el2('p6KNuevoVal'))_el2('p6KNuevoVal').textContent=_kTotal;
-    if(_el2('p6KNuevoSub'))_el2('p6KNuevoSub').textContent='Cuota: 44 QR';
-    if(_el2('p6KActVal'))_el2('p6KActVal').textContent=47;
-    if(_el2('p6KActSub'))_el2('p6KActSub').textContent='Activos Mayo+Abril';
-    if(_el2('p6KPendVal'))_el2('p6KPendVal').textContent=16;
-    if(_el2('p6KPendSub'))_el2('p6KPendSub').textContent='Pendientes Mayo+Abril';
+    // Compute totals — team-aware
+    updateQRKPIs();
+    
     if(_el2('p6KMontoVal'))_el2('p6KMontoVal').textContent='S/.274,014.92';
     if(_el2('p6KMontoSub'))_el2('p6KMontoSub').textContent='Proyecci n total Abr+Mayo';
     // Update global cache for header KPIs
