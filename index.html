@@ -212,7 +212,24 @@ canvas{display:block}
       <div class="g2" style="margin-bottom:14px">
         <div class="panel">
           <div class="ph"><div><div class="pt">Funnel — Distribución por Etapa</div><div class="ps">50% Negociación · 75% Pre Cierre · Dia 26</div></div></div>
-          <div style="position:relative;height:220px"><canvas id="cFunnelPie"></canvas></div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="position:relative;height:220px;flex:1"><canvas id="cFunnelPie"></canvas></div>
+            <div style="min-width:130px;padding:12px 16px;background:rgba(0,0,0,.03);border-radius:10px;border:1px solid rgba(0,0,0,.08)">
+              <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.06em;margin-bottom:10px">Total Funnel</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span style="font-size:11px;color:#3B82F6;font-weight:600">50%</span>
+                <span style="font-size:12px;font-family:Space Mono,monospace;color:#3B82F6;font-weight:700">S/.198,065</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                <span style="font-size:11px;color:#22C55E;font-weight:600">75%</span>
+                <span style="font-size:12px;font-family:Space Mono,monospace;color:#22C55E;font-weight:700">S/.83,548</span>
+              </div>
+              <div style="border-top:1px solid rgba(0,0,0,.10);padding-top:10px">
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.06em;margin-bottom:4px">Total</div>
+                <div style="font-size:15px;font-family:Space Mono,monospace;font-weight:800;color:var(--t1)">S/.281,613</div>
+              </div>
+            </div>
+          </div>
           <div id="cFunnelPieLgd" style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:10px;color:var(--t3)"></div>
         </div>
         <div class="panel">
@@ -259,12 +276,12 @@ canvas{display:block}
           <div id="cQrEstadoLgd" style="display:flex;justify-content:center;gap:12px;margin-top:6px;font-size:10px"></div>
         </div>
         <div class="panel">
-          <div class="ph"><div><div class="pt">QR Activos — 48</div><div class="ps">Mayo 36 · Abril 12</div></div></div>
+          <div class="ph"><div><div class="pt">QR Contribución por Equipo</div><div class="ps">Mayo 36 · Abril 12</div></div></div>
           <div style="position:relative;height:190px"><canvas id="cQrActivos"></canvas></div>
           <div id="cQrActivosLgd" style="display:flex;justify-content:center;gap:12px;margin-top:6px;font-size:10px"></div>
         </div>
         <div class="panel">
-          <div class="ph"><div><div class="pt">QR Facturación — 66</div><div class="ps">Mayo 49 · Abril 17</div></div></div>
+          <div class="ph"><div><div class="pt">QR Facturación — S/.331,584</div><div class="ps">Mayo S/.243,610 · Abril S/.87,974 · Total S/.331,584</div></div></div>
           <div style="position:relative;height:190px"><canvas id="cQrFact"></canvas></div>
           <div id="cQrFactLgd" style="display:flex;justify-content:center;gap:12px;margin-top:6px;font-size:10px"></div>
         </div>
@@ -277,16 +294,21 @@ canvas{display:block}
       </div>
 
       <!-- Arisale 2 circles -->
-      <div class="g2" style="margin-bottom:14px">
+      <div class="g3" style="margin-bottom:14px">
         <div class="panel">
           <div class="ph"><div><div class="pt">Arisale — Estado Alta Sunat</div><div class="ps">Con alta vs Sin alta · Total 45 lic · Dia 26</div></div></div>
-          <div style="position:relative;height:210px"><canvas id="cArisEstado"></canvas></div>
+          <div style="position:relative;height:200px"><canvas id="cArisEstado"></canvas></div>
           <div id="cArisEstadoLgd" style="display:flex;justify-content:center;gap:14px;margin-top:8px;font-size:10px"></div>
         </div>
         <div class="panel">
           <div class="ph"><div><div class="pt">Arisale Con Alta — 42 lic</div><div class="ps">Head Carlos vs Head Ana · Contribución por equipo</div></div></div>
-          <div style="position:relative;height:210px"><canvas id="cArisTeam"></canvas></div>
+          <div style="position:relative;height:200px"><canvas id="cArisTeam"></canvas></div>
           <div id="cArisTeamLgd" style="display:flex;justify-content:center;gap:14px;margin-top:8px;font-size:10px"></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><div><div class="pt">Arisale — Sin Alta</div><div class="ps">Detalle 3 lic sin alta sunat · Dia 26</div></div></div>
+          <div style="position:relative;height:200px"><canvas id="cArisSinAlta"></canvas></div>
+          <div id="cArisSinAltaLgd" style="display:flex;justify-content:center;gap:14px;margin-top:8px;font-size:10px"></div>
         </div>
       </div>
 
@@ -297,11 +319,12 @@ canvas{display:block}
       </div>
 
       <!-- Score Hunter -->
-      <div class="g3">
-        <div class="panel">
-          <div class="ph"><div class="pt">Score % meta — Mayo</div></div>
-          <div style="position:relative;height:160px"><canvas id="cSco"></canvas></div>
-        </div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="ph"><div>
+          <div class="pt">Score % meta — Mayo 2026</div>
+          <div class="ps">70% Captura + 10% RUC + 10% QR + 10% Arisale · Dia 26 · 14 hunters</div>
+        </div></div>
+        <div style="position:relative;height:280px"><canvas id="cSco"></canvas></div>
       </div>
 </div>
 <div id="p2" class="pg">
@@ -1079,7 +1102,10 @@ bP1();bP2();done.p1=done.p2=true;
 </div>
 
 
-<script>
+<script>const CHS={};
+function dc(id){if(CHS[id]){try{CHS[id].destroy();}catch(e){}delete CHS[id];}}
+
+const dkO=(leg=false)=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:leg,labels:{color:'#718096',font:{size:10}}}}});
 var done={};
 const RANK=[
   {pos:1,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',tenure:'1 AÑO Y 2 MESES',score:113.1,incr_pct:118.3,incr_val:295749.0,ruc_pct:66.7,ruc_n:2,qr_pct:233.3,qr_n:7,aris_pct:2.5,aris_val:469,badge:'TOP PERFORMER',col:'#FF8C42',ms:[],as:[]},
@@ -1101,23 +1127,26 @@ const RANK=[
 
 
 const RANK_ABR=[
-  {pos:1,n:'ANALIZ CASTILLO',ini:'AC',t:'SENIOR',col:'#F59E0B',tenure:'1 ANO 2 MESES',score:207.3,incr_pct:240.1,incr_val:672398,ruc_pct:133.3,ruc_n:4,qr_pct:66.7,qr_n:2,aris_pct:66.7,aris_val:120,badge:''},
-  {pos:2,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',col:'#FF6B6B',tenure:'1 ANO 2 MESES',score:164.2,incr_pct:201.3,incr_val:563655,ruc_pct:66.7,ruc_n:2,qr_pct:0.0,qr_n:0,aris_pct:125.0,aris_val:300,badge:''},
-  {pos:3,n:'CRISTIAN HUAMAN',ini:'CH',t:'SENIOR',col:'#00C9FF',tenure:'4 MESES',score:161.1,incr_pct:178.7,incr_val:446673,ruc_pct:66.7,ruc_n:2,qr_pct:166.7,qr_n:5,aris_pct:193.9,aris_val:349,badge:''},
-  {pos:4,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',col:'#FF8C42',tenure:'1 ANO 4 MESES',score:141.7,incr_pct:165.6,incr_val:463589,ruc_pct:133.3,ruc_n:4,qr_pct:100.0,qr_n:3,aris_pct:120.4,aris_val:289,badge:''},
-  {pos:5,n:'ROSA TORRES',ini:'RT',t:'SENIOR',col:'#6BCF7F',tenure:'1 ANO 4 MESES',score:104.1,incr_pct:120.2,incr_val:336432,ruc_pct:66.7,ruc_n:2,qr_pct:0.0,qr_n:0,aris_pct:100.0,aris_val:240,badge:''},
-  {pos:6,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',col:'#4ECDC4',tenure:'2 ANOS 7 MESES',score:97.4,incr_pct:129.6,incr_val:363014,ruc_pct:33.3,ruc_n:1,qr_pct:33.3,qr_n:1,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:7,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',col:'#00E5A0',tenure:'1 ANO 3 MESES',score:95.8,incr_pct:93.9,incr_val:263040,ruc_pct:166.7,ruc_n:5,qr_pct:66.7,qr_n:2,aris_pct:415.8,aris_val:998,badge:''},
-  {pos:8,n:'ROCK LLANOS',ini:'RL',t:'JUNIOR',col:'#84CC16',tenure:'HUNTER NUEVO',score:47.7,incr_pct:63.4,incr_val:114051,ruc_pct:33.3,ruc_n:1,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
-  {pos:9,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',col:'#FF6B9D',tenure:'1 ANO',score:33.7,incr_pct:33.9,incr_val:94828,ruc_pct:0.0,ruc_n:0,qr_pct:133.3,qr_n:4,aris_pct:0.0,aris_val:0,badge:''},
-  {pos:10,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',col:'#FFD93D',tenure:'5 MESES',score:29.6,incr_pct:4.1,incr_val:11550,ruc_pct:66.7,ruc_n:2,qr_pct:33.3,qr_n:1,aris_pct:75.0,aris_val:180,badge:''},
-  {pos:11,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',col:'#888780',tenure:'HUNTER NUEVO',score:26.7,incr_pct:0.0,incr_val:3,ruc_pct:200.0,ruc_n:6,qr_pct:66.7,qr_n:2,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
-  {pos:12,n:'KEVIN PAULINO',ini:'KP',t:'JUNIOR',col:'#06B6D4',tenure:'HUNTER NUEVO',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:'HUNTER NUEVO'},
-  {pos:13,n:'MARIA FLORES',ini:'MF',t:'JUNIOR',col:'#EC4899',tenure:'HUNTER NUEVO',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:33.3,aris_val:60,badge:'HUNTER NUEVO'},
+  {pos:1,n:'ALICIA QUINONES',ini:'AQ',t:'SENIOR',col:'#FF8C42',tenure:'1 ANO 2 MESES',score:119.4,incr_pct:104.5,incr_val:292590,ruc_pct:66.7,ruc_n:2,qr_pct:233.3,qr_n:7,aris_pct:195.4,aris_val:469,badge:''},
+  {pos:2,n:'YASMIN CHECA',ini:'YC',t:'JUNIOR',col:'#888780',tenure:'1 ANO 2 MESES',score:61.7,incr_pct:59.5,incr_val:148780,ruc_pct:66.7,ruc_n:2,qr_pct:133.3,qr_n:4,aris_pct:0.0,aris_val:0,badge:''},
+  {pos:3,n:'PATRICIA ASTORGA',ini:'PA',t:'SENIOR',col:'#00E5A0',tenure:'1 ANO 2 MESES',score:51.9,incr_pct:21.8,incr_val:60947,ruc_pct:33.3,ruc_n:1,qr_pct:133.3,qr_n:4,aris_pct:411.2,aris_val:987,badge:''},
+  {pos:4,n:'ANALIZ CASTILLO',ini:'AC',t:'SENIOR',col:'#F59E0B',tenure:'1 ANO 2 MESES',score:37.2,incr_pct:3.2,incr_val:8840,ruc_pct:0.0,ruc_n:0,qr_pct:266.7,qr_n:8,aris_pct:150.0,aris_val:360,badge:''},
+  {pos:5,n:'OLIVER LOPEZ',ini:'OL',t:'SENIOR',col:'#4ECDC4',tenure:'1 ANO 2 MESES',score:36.2,incr_pct:20.7,incr_val:57823,ruc_pct:33.3,ruc_n:1,qr_pct:133.3,qr_n:4,aris_pct:50.0,aris_val:120,badge:''},
+  {pos:6,n:'CRISTIAN HUAMAN',ini:'CH',t:'JUNIOR',col:'#00C9FF',tenure:'4 MESES',score:32.7,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:133.3,qr_n:4,aris_pct:193.9,aris_val:349,badge:''},
+  {pos:7,n:'ROSA TORRES',ini:'RT',t:'SENIOR',col:'#6BCF7F',tenure:'1 ANO 2 MESES',score:31.7,incr_pct:1.2,incr_val:3337,ruc_pct:0.0,ruc_n:0,qr_pct:133.3,qr_n:4,aris_pct:175.0,aris_val:420,badge:''},
+  {pos:8,n:'ROCK LLANOS',ini:'RL',t:'JUNIOR',col:'#84CC16',tenure:'10 MESES',score:27.9,incr_pct:16.1,incr_val:40270,ruc_pct:33.3,ruc_n:1,qr_pct:100.0,qr_n:3,aris_pct:33.3,aris_val:60,badge:''},
+  {pos:9,n:'ANDREA SOTO',ini:'AS',t:'SENIOR',col:'#FFD93D',tenure:'1 ANO 2 MESES',score:27.6,incr_pct:26.3,incr_val:73700,ruc_pct:33.3,ruc_n:1,qr_pct:33.3,qr_n:1,aris_pct:25.0,aris_val:60,badge:''},
+  {pos:10,n:'FRANCO ROUILLON',ini:'FR',t:'JUNIOR',col:'#F97316',tenure:'10 MESES',score:25.4,incr_pct:8.6,incr_val:21455,ruc_pct:0.0,ruc_n:0,qr_pct:33.3,qr_n:1,aris_pct:160.6,aris_val:289,badge:''},
+  {pos:11,n:'MELISSA VASQUEZ',ini:'MV',t:'SENIOR',col:'#FF6B6B',tenure:'1 ANO 2 MESES',score:19.5,incr_pct:1.1,incr_val:3073,ruc_pct:0.0,ruc_n:0,qr_pct:66.7,qr_n:2,aris_pct:120.4,aris_val:289,badge:''},
+  {pos:12,n:'MELISA LLACCHUAS',ini:'ML',t:'SENIOR',col:'#FF6B9D',tenure:'1 ANO 2 MESES',score:16.7,incr_pct:0.1,incr_val:228,ruc_pct:0.0,ruc_n:0,qr_pct:166.7,qr_n:5,aris_pct:0.0,aris_val:0,badge:''},
+  {pos:13,n:'MARIA FLORES',ini:'MF',t:'JUNIOR',col:'#EC4899',tenure:'1 ANO 2 MESES',score:4.7,incr_pct:1.9,incr_val:4829,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:33.3,aris_val:60,badge:''},
+  {pos:14,n:'KEVIN PAULINO',ini:'KP',t:'JUNIOR',col:'#06B6D4',tenure:'5 MESES',score:0.0,incr_pct:0.0,incr_val:0,ruc_pct:0.0,ruc_n:0,qr_pct:0.0,qr_n:0,aris_pct:0.0,aris_val:0,badge:''},
 ];
+
 const ARIS_ACU=[{n:'ANA CARRERA',col:'#A855F7',val:660,meta:240},{n:'PATRICIA ASTORGA',col:'#00E5A0',val:409,meta:240},{n:'OLIVER LOPEZ',col:'#4ECDC4',val:406,meta:240},{n:'CRISTIAN HUAMAN',col:'#00C9FF',val:120,meta:180},{n:'MELISA LLACCHUAS',col:'#FF6B9D',val:120,meta:240},{n:'MELISSA VASQUEZ',col:'#FF6B6B',val:120,meta:240},{n:'ANALIZ CASTILLO',col:'#F59E0B',val:60,meta:240},{n:'ALICIA QUINONES',col:'#FF8C42',val:60,meta:240}];
 const QR_PEND=[['Quinones','Cahoba Inversiones S.A.C.'],['Torres','Torres Sotelo Ana Maria'],['Torres','Marcos Antonio Martinez Chacon'],['Carrera','Elizabeth Maribel Salazar Espinoza'],['Lopez','Angel Eliott Ochoa Leon'],['Llacchuas','Vilcayauri Melo Jesus Fernando'],['Carrera','Jose Jairo Mamani Mamani'],['Lopez','Jose Jairo Mamani Mamani'],['Carrera','Ayala Salcedo Edmit'],['Carrera','Aguilar Cerdan Gerardo'],['Soto','Comercial Plaza Chachapoyas SRL'],['Castillo','Ana Melva Flores Arana'],['Vasquez','Vicente Moreno Danny Raul']];
-const CTS2=[{"h":"Blas Liñan","col":"#9AA5B4","r":"AQUAPARK HUACHIPA S.A.C.","ruc":"20514038512","mes":"Febrero","t":"ADDS","pot":80000.0,"f":48510.0,"m":-48510.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"Cafe Tostado S.A.C.","ruc":"20614711443","mes":"Febrero","t":"NEWS","pot":50000.0,"f":39371.86,"m":11793.2,"a30":-7193.16,"m06":-34553.44,"m10":-26352.67,"m12":-23594.83,"m14":-21171.93,"m17":-14957.42,"m19":-12425.5,"m21":-9648.65,"m24":-3037.13,"m25":-1610.99,"p":8555.63},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"CIRCULO DE OFICIALES DE LA SANIDAD DE LAS FUERZAS POLICIALES","ruc":"20136926455","mes":"Febrero","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"CONSORCIO CENTRO CIVICO SAC","ruc":"20605283781","mes":"Febrero","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":1469.41,"m10":7202.62,"m12":5928.28,"m14":4302.78,"m17":8006.42,"m19":6394.04,"m21":4881.4,"m24":6569.56,"m25":5904.74,"p":7321.87},{"h":"Blas Liñan","col":"#9AA5B4","r":"Corporacion Pluton S.A.C.","ruc":"20614354187","mes":"Febrero","t":"NEWS","pot":25000.0,"f":2997.72,"m":-2425.5,"a30":7573.5,"m06":-7803.18,"m10":-7605.18,"m12":-6904.26,"m14":-6904.26,"m17":-6606.27,"m19":-6606.27,"m21":-6606.27,"m24":-6606.27,"m25":-6606.27,"p":-6236.8},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"Saskya Tatiana Rodriguez Hinostroza","ruc":"77281732","mes":"Febrero","t":"NEWS","pot":30000.0,"f":20641.83,"m":12199.44,"a30":4753.1,"m06":-27979.82,"m10":-16514.19,"m12":-13517.57,"m14":-12997.38,"m17":-6055.94,"m19":-4275.15,"m21":-2946.02,"m24":319.62,"m25":3700.8,"p":13611.64},{"h":"ANA CARRERA","col":"#A855F7","r":"Corporacion Brasas Del Peru S.A.C.","ruc":"20612146790","mes":"Febrero","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"FSG HAIR DESIGNER EIRL","ruc":"20602969194","mes":"Febrero","t":"NEWS","pot":70000.0,"f":16117.2,"m":98310.3,"a30":-10973.6,"m06":-103453.9,"m10":-52807.7,"m12":-37107.4,"m14":-20662.4,"m17":15485.8,"m19":25435.3,"m21":25435.3,"m24":29954.1,"m25":29954.1,"p":61972.02},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"FASGAM E.I.R.L.","ruc":"20610458999","mes":"Febrero","t":"NEWS","pot":70000.0,"f":5571.5,"m":86555.7,"a30":-66382.8,"m06":-25744.4,"m10":-18979.4,"m12":-10470.9,"m14":-111.1,"m17":25455.1,"m19":32242.1,"m21":32242.1,"m24":32242.1,"m25":32242.1,"p":46158.86},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"SANCHEZ GONZALEZ FLAVIO ANDRE","ruc":"10475121762","mes":"Febrero","t":"NEWS","pot":25000.0,"f":13332.0,"m":92152.5,"a30":-28818.9,"m06":-74685.6,"m10":-36493.6,"m12":-33336.6,"m14":-10619.4,"m17":-6670.4,"m19":-4701.4,"m21":-4701.4,"m24":-4701.4,"m25":-4701.4,"p":12570.01},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"INVERSIONES ROBIN S.A.C.","ruc":"20607715778","mes":"Febrero","t":"ADDS","pot":25000.0,"f":0.0,"m":6014.24,"a30":-6014.24,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"CONSORCIO DE IMPORT Y EXPORT LOCERIA CUSCO SAC","ruc":"20521326574","mes":"Febrero","t":"NEWS","pot":50000.0,"f":23383.66,"m":41792.25,"a30":-3481.69,"m06":-39534.06,"m10":-22084.32,"m12":-16677.05,"m14":-14926.51,"m17":-13897.01,"m19":-12406.51,"m21":-10731.0,"m24":-8792.46,"m25":-8621.96,"p":4115.38},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"Cocihogar Import Sociedad Anonima Cerrada   Cociho","ruc":"20612651621","mes":"Febrero","t":"NEWS","pot":180000.0,"f":10831.89,"m":29373.75,"a30":-33158.32,"m06":-6301.35,"m10":-5388.52,"m12":-5388.52,"m14":-5306.15,"m17":-5306.15,"m19":-4961.24,"m21":-4343.48,"m24":-4260.32,"m25":-4206.86,"p":-3525.15},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Nature  Cheese EIRL","ruc":"20614900041","mes":"Febrero","t":"NEWS","pot":30000.0,"f":3586.11,"m":45292.83,"a30":-20402.89,"m06":-10168.91,"m10":5308.75,"m12":13163.41,"m14":16909.26,"m17":24966.54,"m19":30073.4,"m21":33701.53,"m24":39733.38,"m25":39733.38,"p":56103.64},{"h":"ROSA TORRES","col":"#6BCF7F","r":"ARIZAPANA CONDORI VLADIMIR","ruc":"10444771530","mes":"Febrero","t":"NEWS","pot":25000.0,"f":7778.76,"m":29554.49,"a30":10897.24,"m06":-43302.38,"m10":-28253.06,"m12":-26995.65,"m14":-25110.8,"m17":-23667.82,"m19":-21979.1,"m21":-20392.35,"m24":-19238.23,"m25":-18461.74,"p":-11317.24},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Panalia S.A.C.","ruc":"20614986728","mes":"Febrero","t":"NEWS","pot":300000.0,"f":271.5,"m":277467.63,"a30":290534.48,"m06":-469391.23,"m10":-314526.59,"m12":-282636.32,"m14":-245136.32,"m17":-187426.02,"m19":-151817.74,"m21":-116878.7,"m24":-57005.07,"m25":-39154.96,"p":87833.51},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Pastired Eirl","ruc":"20614196026","mes":"Febrero","t":"NEWS","pot":300000.0,"f":438.12,"m":266773.53,"a30":298000.09,"m06":-461787.7,"m10":-319491.32,"m12":-281464.45,"m14":-243836.32,"m17":-179792.44,"m19":-145448.59,"m21":-106488.35,"m24":-44208.54,"m25":-28297.43,"p":100562.0},{"h":"ANA CARRERA","col":"#A855F7","r":"Zual Automecanica S.A.C.","ruc":"20614132389","mes":"Febrero","t":"NEWS","pot":50000.0,"f":90.2,"m":542.3,"a30":1205.05,"m06":0.0,"m10":745.25,"m12":745.25,"m14":745.25,"m17":745.25,"m19":745.25,"m21":745.25,"m24":745.25,"m25":2134.0,"p":3087.17},{"h":"ANA CARRERA","col":"#A855F7","r":"ZUAL CARS S.A.C.","ruc":"20610118217","mes":"Febrero","t":"NEWS","pot":50000.0,"f":1.1,"m":97.9,"a30":-99.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"Zual Autos S.A.C.","ruc":"20613870556","mes":"Febrero","t":"NEWS","pot":50000.0,"f":95.7,"m":6444.65,"a30":-6160.85,"m06":0.0,"m10":5.5,"m12":5.5,"m14":5.5,"m17":5.5,"m19":5.5,"m21":5.5,"m24":5.5,"m25":5.5,"p":97.9},{"h":"ANA CARRERA","col":"#A855F7","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"Febrero","t":"ADDS","pot":30000.0,"f":1.26,"m":-1.26,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"CREACIONES RASYR S.A.C.","ruc":"20550843863","mes":"Febrero","t":"ADDS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"C & C PHARM SAC","ruc":"20608382781","mes":"Febrero","t":"NEWS","pot":50000.0,"f":2.75,"m":76438.63,"a30":-21163.81,"m06":-11845.63,"m10":-32161.75,"m12":-22135.58,"m14":-15867.45,"m17":-12723.21,"m19":-3838.73,"m21":3366.05,"m24":6443.85,"m25":8055.35,"p":23255.26},{"h":"ANDREA SOTO","col":"#FFD93D","r":"LAVANDERIA SAORI S A","ruc":"20100960495","mes":"Febrero","t":"NEWS","pot":75000.0,"f":0.0,"m":11125.82,"a30":89440.48,"m06":-7028.92,"m10":-63707.71,"m12":-57875.62,"m14":-51397.65,"m17":-43594.17,"m19":-35445.29,"m21":-27613.5,"m24":-18431.74,"m25":-12397.49,"p":8763.02},{"h":"ANDREA SOTO","col":"#FFD93D","r":"SAORI CLEAN CARE EIRL","ruc":"20611309318","mes":"Febrero","t":"NEWS","pot":75000.0,"f":0.0,"m":17427.07,"a30":87679.03,"m06":0.0,"m10":-72209.1,"m12":-62550.06,"m14":-54636.5,"m17":-43631.95,"m19":-34244.48,"m21":-22820.87,"m24":-14479.52,"m25":-7926.71,"p":15396.34},{"h":"ANDREA SOTO","col":"#FFD93D","r":"YATOKU S.A.","ruc":"20507784951","mes":"Febrero","t":"NEWS","pot":75000.0,"f":0.0,"m":9305.11,"a30":41960.95,"m06":-41404.57,"m10":-32945.81,"m12":-28664.86,"m14":-24960.87,"m17":-19376.97,"m19":-14941.97,"m21":-12435.09,"m24":-7701.31,"m25":-6114.64,"p":4721.71},{"h":"ANDREA SOTO","col":"#FFD93D","r":"DASSO DRY CLEANER E.I.R.L","ruc":"20512576851","mes":"Marzo","t":"NEWS","pot":75000.0,"f":0.0,"m":10867.92,"a30":127000.55,"m06":-115254.59,"m10":-91505.28,"m12":-81732.6,"m14":-71267.11,"m17":-61468.78,"m19":-49908.36,"m21":-40627.01,"m24":-27856.9,"m25":-20209.15,"p":8029.09},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"BERNACHEA HILARIO MARJORIE MARICIELO","ruc":"10609881912","mes":"Marzo","t":"ADDS","pot":25000.0,"f":0.0,"m":4358.29,"a30":1199.08,"m06":-4699.49,"m10":-3997.57,"m12":-3126.84,"m14":-2807.92,"m17":-2457.85,"m19":-2201.23,"m21":-1657.97,"m24":-1411.65,"m25":-962.47,"p":140.31},{"h":"ANA CARRERA","col":"#A855F7","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"Marzo","t":"ADDS","pot":30000.0,"f":0.0,"m":20.56,"a30":-20.56,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"ARABICA S.A.C.","ruc":"20456507230","mes":"Marzo","t":"NEWS","pot":80000.0,"f":0.0,"m":59980.25,"a30":24676.3,"m06":-63211.5,"m10":-43727.75,"m12":-38700.75,"m14":-33389.4,"m17":-20698.7,"m19":-15044.7,"m21":-11269.5,"m24":2069.1,"m25":4375.8,"p":25743.56},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Red Tours Eirl","ruc":"20544980395","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":1.98,"m12":1.98,"m14":1.98,"m17":1.98,"m19":1.98,"m21":1.98,"m24":1.98,"m25":1.98,"p":2.46},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"WOSAK SAC","ruc":"20547709013","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":2467.85,"m06":3202.85,"m10":24790.57,"m12":31813.04,"m14":40822.25,"m17":61191.69,"m19":68848.43,"m21":169583.88,"m24":223283.68,"m25":231743.2,"p":287953.86},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"ONCO PREV INTERNACIONAL SAC","ruc":"20549391088","mes":"Marzo","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":9947.0,"m06":-9947.0,"m10":-9947.0,"m12":-9947.0,"m14":-9947.0,"m17":-9947.0,"m19":-9947.0,"m21":-9947.0,"m24":-9947.0,"m25":-9947.0,"p":-9947.0},{"h":"ANA CARRERA","col":"#A855F7","r":"PULSE SAC","ruc":"20604592420","mes":"Marzo","t":"NEWS","pot":250000.0,"f":0.0,"m":279130.99,"a30":87546.78,"m06":-253488.62,"m10":-178670.46,"m12":-173277.63,"m14":-158671.27,"m17":-81507.9,"m19":-70927.97,"m21":-53474.25,"m24":10778.73,"m25":16852.68,"p":108899.99},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"COMERCIAL TODO TENGO SAC","ruc":"20606545232","mes":"Marzo","t":"NEWS","pot":150000.0,"f":0.0,"m":167864.86,"a30":65832.68,"m06":-191550.35,"m10":-133145.97,"m12":-116868.89,"m14":-101413.05,"m17":-72261.16,"m19":-63125.87,"m21":-47177.89,"m24":-14573.72,"m25":-9856.02,"p":43865.94},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"Inversiones Ainc E.I.R.L.","ruc":"20607748757","mes":"Marzo","t":"NEWS","pot":150000.0,"f":0.0,"m":66705.93,"a30":112522.79,"m06":-153878.84,"m10":-117008.48,"m12":-106181.46,"m14":-95881.67,"m17":-79941.01,"m19":-63087.36,"m21":-46812.04,"m24":-32444.94,"m25":-21347.32,"p":16544.22},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"TECHNOLOGICAL CONSULTING S.A.C.","ruc":"20608507141","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANDREA SOTO","col":"#FFD93D","r":"GRUPO CERFER SOCIEDAD ANONIMA CERRADA","ruc":"20609084091","mes":"Marzo","t":"NEWS","pot":100000.0,"f":0.0,"m":82.5,"a30":14467.68,"m06":-12553.95,"m10":-11552.95,"m12":-11428.65,"m14":-10857.75,"m17":-10788.78,"m19":-9983.8,"m21":-9739.29,"m24":-5596.34,"m25":-5596.34,"p":-3447.41},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"ANDA INTERNACIONAL INDIVIDUAL DE RESPONSABILIDAD LIMITADA - ANDA INTERNACIONAL E","ruc":"20609451522","mes":"Marzo","t":"NEWS","pot":1000000.0,"f":0.0,"m":427616.43,"a30":403801.87,"m06":-638410.06,"m10":-418346.99,"m12":-353754.64,"m14":-309346.14,"m17":-217290.54,"m19":-148936.79,"m21":-103447.53,"m24":-20556.05,"m25":24450.38,"p":229858.86},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"RUNA ASOCIADOS SAC","ruc":"20612978728","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":34299.98,"a30":3537.06,"m06":-29352.63,"m10":-19164.32,"m12":-15868.28,"m14":-13041.78,"m17":-6623.94,"m19":-3190.56,"m21":-913.45,"m24":4695.45,"m25":5824.82,"p":16303.67},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Estudio Ubillus Y Asociados Peru S.A.C.","ruc":"20614594561","mes":"Marzo","t":"NEWS","pot":50000.0,"f":0.0,"m":74608.6,"a30":-9038.7,"m06":-61169.9,"m10":-42194.9,"m12":-37822.4,"m14":-30122.4,"m17":-26822.4,"m19":-23522.4,"m21":-20222.4,"m24":-16922.4,"m25":-7792.4,"p":6074.2},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"H Y S Helados S.A.C.","ruc":"20614701634","mes":"Marzo","t":"NEWS","pot":50000.0,"f":0.0,"m":52538.26,"a30":30649.79,"m06":-67915.32,"m10":-55989.89,"m12":-49042.95,"m14":-46038.74,"m17":-39908.33,"m19":-35518.56,"m21":-32697.94,"m24":-26508.24,"m25":-23157.97,"p":0.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"ESSENCE 11 EIRL","ruc":"20613594974","mes":"Marzo","t":"NEWS","pot":60000.0,"f":0.0,"m":16629.8,"a30":62694.96,"m06":-67077.69,"m10":-54092.83,"m12":-52009.32,"m14":-48486.9,"m17":-42011.86,"m19":-40363.18,"m21":-36507.46,"m24":-29198.8,"m25":-28892.34,"p":0.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"AIB INVESTMENTS E.I.R.L.","ruc":"20612689793","mes":"Marzo","t":"NEWS","pot":50000.0,"f":0.0,"m":11006.05,"a30":73801.68,"m06":-71968.26,"m10":-64595.04,"m12":-58448.62,"m14":-56824.36,"m17":-54239.75,"m19":-49025.77,"m21":-46613.7,"m24":-40158.46,"m25":-37581.16,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"VICMAR GROUP S.A.C.","ruc":"20566129982","mes":"Marzo","t":"ADDS","pot":50000.0,"f":0.0,"m":26972.82,"a30":30671.86,"m06":-26437.09,"m10":7315.31,"m12":8276.06,"m14":10702.82,"m17":13449.62,"m19":16323.68,"m21":18941.96,"m24":21132.47,"m25":23219.66,"p":42627.1},{"h":"ROSA TORRES","col":"#6BCF7F","r":"MARAVI SALON SPA E.I.R.L.","ruc":"20610737308","mes":"Marzo","t":"ADDS","pot":30000.0,"f":0.0,"m":0.0,"a30":399.73,"m06":-193.06,"m10":179.83,"m12":282.77,"m14":389.37,"m17":606.31,"m19":812.1,"m21":856.21,"m24":1135.5,"m25":1150.2,"p":1522.19},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"C Y C PHARM SAC","ruc":"20608382781","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":2545.83,"a30":10801.29,"m06":-11845.63,"m10":-11845.63,"m12":-10377.13,"m14":-8518.13,"m17":-8133.13,"m19":-7253.13,"m21":-7253.13,"m24":-7253.13,"m25":-7253.13,"p":-5790.57},{"h":"ANDREA SOTO","col":"#FFD93D","r":"Berrocal Candela Piero Adrian","ruc":"10744174126","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":4811.18,"m06":-4811.18,"m10":-4811.18,"m12":-4811.18,"m14":-4811.18,"m17":-4811.18,"m19":-4811.18,"m21":-4811.18,"m24":-4811.18,"m25":-4810.08,"p":-4809.82},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Zaga Auto Center S.A.C.","ruc":"20615208443","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":18519.73,"m06":-17449.05,"m10":-13311.84,"m12":-11097.7,"m14":-10058.2,"m17":-8715.17,"m19":-7677.75,"m21":-6788.97,"m24":-4730.76,"m25":-3643.45,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"GALWAY INVERSIONES SOCIEDAD ANONIMA CERRADA","ruc":"20612227382","mes":"Marzo","t":"NEWS","pot":200000.0,"f":0.0,"m":34321.96,"a30":83686.87,"m06":-104029.42,"m10":-96436.02,"m12":-96075.64,"m14":-94304.13,"m17":-90332.15,"m19":-87941.4,"m21":-84368.49,"m24":-75389.73,"m25":-74846.01,"p":-64486.93},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"ZAGA CORP SAC","ruc":"20606621931","mes":"Marzo","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":23134.76,"m06":-18230.63,"m10":-14499.98,"m12":-13916.71,"m14":-5548.73,"m17":3156.67,"m19":3988.27,"m21":8244.44,"m24":15263.38,"m25":16644.76,"p":26191.84},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"MASAMAMA SOCIEDAD ANONIMA CERDADA - MASAMAMA S.A.C.","ruc":"20603278446","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":29365.93,"m06":-4758.92,"m10":11861.29,"m12":16394.07,"m14":21659.92,"m17":30377.62,"m19":35383.63,"m21":63407.74,"m24":77702.57,"m25":80806.11,"p":107247.4},{"h":"ANA CARRERA","col":"#A855F7","r":"Grupo El Rey De Las Papas S.A.C.","ruc":"20613350684","mes":"Marzo","t":"NEWS","pot":200000.0,"f":0.0,"m":0.0,"a30":125850.32,"m06":-99413.47,"m10":-75070.74,"m12":-69627.39,"m14":-57768.29,"m17":-38751.16,"m19":-33872.11,"m21":-28247.81,"m24":-11764.86,"m25":-9210.66,"p":18782.85},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"CLINICA MEDICA ZEGARRA S.A.C.","ruc":"20512867741","mes":"Marzo","t":"NEWS","pot":150000.0,"f":0.0,"m":0.0,"a30":110894.98,"m06":-84974.82,"m10":-57838.37,"m12":-35985.95,"m14":-19435.8,"m17":7707.67,"m19":16562.43,"m21":26102.46,"m24":57423.85,"m25":61991.6,"p":103484.38},{"h":"ANA CARRERA","col":"#A855F7","r":"CORK INVERSIONES SAC","ruc":"20614554755","mes":"Marzo","t":"NEWS","pot":150000.0,"f":0.0,"m":10375.26,"a30":120655.6,"m06":-113467.08,"m10":-86687.05,"m12":-81143.07,"m14":-74039.79,"m17":-57922.81,"m19":-52666.73,"m21":-43964.54,"m24":-30058.71,"m25":-26400.55,"p":-1289.27},{"h":"ANDREA SOTO","col":"#FFD93D","r":"TURISMO ESPINOZA EIRL","ruc":"20428474881","mes":"Marzo","t":"NEWS","pot":50000.0,"f":0.0,"m":100617.0,"a30":-11291.06,"m06":-72037.05,"m10":-60511.12,"m12":-54748.16,"m14":-48985.19,"m17":-40340.75,"m19":-34577.78,"m21":-28814.82,"m24":-20170.37,"m25":-17288.89,"p":0.0},{"h":"ANDREA SOTO","col":"#FFD93D","r":"D TODO CERAMICA","ruc":"20603463472","mes":"Marzo","t":"ADDS","pot":100000.0,"f":0.0,"m":70000.0,"a30":35000.0,"m06":-84677.42,"m10":-71129.03,"m12":-64354.84,"m14":-57580.65,"m17":-47419.35,"m19":-40645.16,"m21":-33870.97,"m24":-23709.68,"m25":-20322.58,"p":0.0},{"h":"ROSA TORRES","col":"#6BCF7F","r":"BIOBODEGA LAS VACAS E.I.R.L.","ruc":"20557687905","mes":"Marzo","t":"ADDS","pot":100000.0,"f":0.0,"m":0.0,"a30":70000.0,"m06":-65800.0,"m10":-65800.0,"m12":-65800.0,"m14":-65800.0,"m17":-35000.0,"m19":-35000.0,"m21":-35000.0,"m24":-35000.0,"m25":-35000.0,"p":-26600.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"REEN FELSEN S.A.C.","ruc":"20612877301","mes":"Marzo","t":"NEWS","pot":25000.0,"f":0.0,"m":15777.39,"a30":67725.04,"m06":-67340.67,"m10":-56566.16,"m12":-51178.91,"m14":-45791.66,"m17":-37710.77,"m19":-32323.52,"m21":-26936.27,"m24":-31658.0,"m25":-31658.0,"p":0.0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"RED DE CONSORCIO DE TELECOMUNICACIONES AVANZADAS S.A.C.","ruc":"20600237455","mes":"Abril","t":"NEWS","pot":250000.0,"f":0.0,"m":0.0,"a30":40229.2,"m06":34557.97,"m10":150692.67,"m12":216750.97,"m14":245694.17,"m17":301915.17,"m19":376363.61,"m21":373904.67,"m24":410998.87,"m25":442382.97,"p":558209.9},{"h":"ROSA TORRES","col":"#6BCF7F","r":"AUTOPARTES IMPORTACION S.A.C.","ruc":"20600804791","mes":"Abril","t":"NEWS","pot":200000.0,"f":0.0,"m":0.0,"a30":316912.37,"m06":-258088.44,"m10":-217375.51,"m12":-190960.11,"m14":-160799.76,"m17":-129991.02,"m19":215000.01,"m21":-64238.68,"m24":-26098.66,"m25":-5575.08,"p":69145.87},{"h":"ROSA TORRES","col":"#6BCF7F","r":"BEIT GROUP PERU SAC","ruc":"20605867163","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":74481.79,"m06":55000.0,"m10":-20556.56,"m12":-12405.0,"m14":789.42,"m17":40439.37,"m19":105919.54,"m21":38854.88,"m24":59100.19,"m25":61595.93,"p":94254.59},{"h":"ROSA TORRES","col":"#6BCF7F","r":"BEIT GROUP PERU S.A.C. - PILLIN RECUPERO","ruc":"20605867163","mes":"Abril","t":"NEWS","pot":100000.0,"f":0.0,"m":0.0,"a30":99000.0,"m06":55000.0,"m10":55000.0,"m12":55000.0,"m14":55000.0,"m17":106700.0,"m19":106700.0,"m21":7700.0,"m24":7700.0,"m25":7700.0,"p":33308.0},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"INVERSIONES FARMACEUTICAS KALLPA S.A.C.","ruc":"20536865595","mes":"Abril","t":"ADDS","pot":200000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":12542.06,"m14":26980.69,"m17":50263.1,"m19":-250032.3,"m21":84488.38,"m24":108259.21,"m25":117817.96,"p":146094.27},{"h":"ROCK LLANOS","col":"#84CC16","r":"INVERSIONES Y PROYECTOS ML E.I.R.L.","ruc":"20605219013","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":12363.87,"m06":5558.64,"m10":8511.16,"m12":7723.83,"m14":6073.4,"m17":25217.27,"m19":11613.23,"m21":36030.55,"m24":52026.51,"m25":50066.66,"p":65049.99},{"h":"ROCK LLANOS","col":"#84CC16","r":"C Y M Distribuciones Y Logistica S.A.C.","ruc":"20614502321","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":78387.87,"m06":-58248.68,"m10":-37983.38,"m12":-36649.35,"m14":-33162.97,"m17":-19241.99,"m19":62749.39,"m21":-14028.94,"m24":-4119.04,"m25":-2714.23,"p":15447.44},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"TIENDAS GIRASOLES S.R.L.","ruc":"20498263381","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":12935.34,"m06":-4751.51,"m10":16415.19,"m12":21793.86,"m14":26349.92,"m17":32836.4,"m19":51145.95,"m21":43476.42,"m24":51518.19,"m25":53135.36,"p":68992.33},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"SASTRERIA FIRENZE SAC","ruc":"20606829273","mes":"Abril","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":41030.0,"m10":52962.8,"m12":52962.8,"m14":52962.8,"m17":52963.9,"m19":52965.0,"m21":52965.0,"m24":52965.0,"m25":52965.0,"p":65676.6},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"GRUPO VOGUE LISS S.A.C.","ruc":"20602359566","mes":"Abril","t":"NEWS","pot":200000.0,"f":0.0,"m":0.0,"a30":36792.36,"m06":-27876.86,"m10":-13496.45,"m12":-9816.95,"m14":-5848.15,"m17":4014.56,"m19":38271.42,"m21":15979.26,"m24":18747.96,"m25":21142.11,"p":35046.38},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"PGR ODONTOLOGIA ESPECIALIZADA S.A.C.","ruc":"20543244725","mes":"Abril","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":10830.34,"m06":-2567.8,"m10":11619.89,"m12":14451.29,"m14":21252.59,"m17":25237.34,"m19":38795.13,"m21":33389.99,"m24":37642.04,"m25":41785.19,"p":54412.92},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"DREAMS TRUE EXPERIENCIAS SAC","ruc":"20612114821","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":211.53,"m10":18168.32,"m12":21178.08,"m14":25490.35,"m17":40086.25,"m19":31489.01,"m21":49383.68,"m24":62197.46,"m25":63473.47,"p":78707.1},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":".MARTINEZ ANDRADE TANY STEPHANIE","ruc":"10704429661","mes":"Abril","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":10927.4,"m06":13850.27,"m10":21573.8,"m12":21573.8,"m14":21573.81,"m17":27404.9,"m19":-78710.5,"m21":27404.91,"m24":33258.56,"m25":33258.56,"p":43863.18},{"h":"ROSA TORRES","col":"#6BCF7F","r":"CHIQUITEX - RECUPERO","ruc":"20604304360","mes":"Abril","t":"NEWS","pot":180000.0,"f":0.0,"m":0.0,"a30":30800.0,"m06":11000.0,"m10":11000.0,"m12":11000.0,"m14":11000.0,"m17":30800.0,"m19":19969.66,"m21":0.0,"m24":0.0,"m25":0.0,"p":7392.0},{"h":"MARIA FLORES","col":"#EC4899","r":"Mitma Navarro Helen Vanessa","ruc":"10700406526","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":13119.68,"m06":-5090.41,"m10":4369.58,"m12":6997.38,"m14":10034.92,"m17":15586.43,"m19":-47694.84,"m21":20257.58,"m24":24642.73,"m25":25702.03,"p":35019.24},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Consultorios Dermatologicos De La Piel S.A.C.","ruc":"20615511103","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":6798.0,"m12":12859.0,"m14":19844.0,"m17":26169.0,"m19":26595.34,"m21":33264.0,"m24":38423.0,"m25":42658.0,"p":52895.92},{"h":"YASMIN CHECA","col":"#888780","r":"INVERSIONES COSSIO EIRL","ruc":"20614142091","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":1.1,"m12":34.1,"m14":6545.55,"m17":20925.85,"m19":4791.42,"m21":28249.1,"m24":31575.5,"m25":33914.65,"p":42054.17},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"DISTRIBUIDORA RUSS E.I.R.L.","ruc":"20610166246","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":274.28,"m06":4974.7,"m10":7820.24,"m12":8976.35,"m14":9700.98,"m17":13687.04,"m19":15732.77,"m21":16408.2,"m24":20590.61,"m25":20983.73,"p":26085.65},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"Jspg E.I.R.L.","ruc":"20610981985","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":3578.59,"m06":-2234.37,"m10":5311.77,"m12":8161.96,"m14":11081.54,"m17":14868.39,"m19":22009.64,"m21":21910.51,"m24":25481.39,"m25":26923.93,"p":34244.53},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"Inversiones Kur Saal S.A.C.","ruc":"20613135082","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":6865.65,"m12":9840.6,"m14":13025.43,"m17":17199.27,"m19":19851.48,"m21":23398.65,"m24":32249.25,"m25":33691.68,"p":41777.68},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"TRIPLE A GROUP SOCIEDAD ANONIMA CERRADA","ruc":"20611402768","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":13557.5,"m12":13557.5,"m14":13557.5,"m17":13557.5,"m19":13450.61,"m21":13645.5,"m24":13645.5,"m25":13645.5,"p":16920.42},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"ZAVALA CARLIN ROXANA","ruc":"10099950892","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":3137.66,"m06":-880.46,"m10":1752.94,"m12":1752.94,"m14":2544.94,"m17":3188.44,"m19":7593.3,"m21":6287.14,"m24":6287.14,"m25":6287.14,"p":8549.1},{"h":"ANDREA SOTO","col":"#FFD93D","r":"LAVANDERIA SAORI S A","ruc":"20100960495","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":5152.73,"m06":-7028.92,"m10":-5592.65,"m12":-5523.79,"m14":-4991.5,"m17":-4460.41,"m19":4194.73,"m21":-195.14,"m24":270.37,"m25":482.99,"p":1835.57},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"IMPORT EXPORT PERFECTA - RECUPERO","ruc":"20565608313","mes":"Abril","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":5500.0,"m10":5500.0,"m12":5500.0,"m14":5500.0,"m17":5500.0,"m19":1921.41,"m21":5500.0,"m24":5500.0,"m25":5500.0,"p":6820.0},{"h":"ANA CARRERA","col":"#A855F7","r":"INVERSIONES EL ZAGUAN SOCIEDAD ANONIMA CERRADA","ruc":"20608134787","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":4669.5,"m10":4796.0,"m12":4796.0,"m14":4994.0,"m17":4994.0,"m19":-7891.84,"m21":5043.5,"m24":5043.5,"m25":5043.5,"p":6253.94},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"NORTH GEM SOCIEDAD ANONIMA CERRADA - RECUPERO","ruc":"20611953799","mes":"Abril","t":"NEWS","pot":45000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":4400.0,"m10":4400.0,"m12":4400.0,"m14":4400.0,"m17":4400.0,"m19":4400.0,"m21":4400.0,"m24":4400.0,"m25":4400.0,"p":5456.0},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"Jara Rivas Lady Laura","ruc":"10473688781","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":864.16,"m06":-512.38,"m10":-55.0,"m12":128.92,"m14":279.62,"m17":441.43,"m19":1440.56,"m21":698.83,"m24":908.05,"m25":951.39,"p":1387.12},{"h":"ANA CARRERA","col":"#A855F7","r":"Alimentos Italianos En Peru SAC","ruc":"20613526332","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":288.15,"m12":288.15,"m14":288.15,"m17":630.25,"m19":630.25,"m21":630.25,"m24":718.25,"m25":718.25,"p":890.62},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"NFS IMPORT AUTOMOTRIZ E.I.R.L.","ruc":"20609591014","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":676.5,"m06":-236.5,"m10":-236.5,"m12":-236.5,"m14":-236.5,"m17":-236.5,"m19":440.0,"m21":-236.5,"m24":3063.5,"m25":3063.5,"p":3961.1},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Firenze Novios S.A.C.","ruc":"20613328433","mes":"Abril","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":1.1,"m21":1.1,"m24":1.1,"m25":1.1,"p":1.36},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"EMPRESA MUNICIPAL SANTIAGO DE SURCO S.A.-EMUSS S.A.","ruc":"20502733851","mes":"Abril","t":"ADDS","pot":80000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Red Tours Eirl","ruc":"20544980395","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"HELADERIA MARTORELL S.A.C.","ruc":"20610054090","mes":"Abril","t":"ADDS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANDREA SOTO","col":"#FFD93D","r":"SAORI CLEAN CARE EIRL","ruc":"20611309318","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":-40229.2,"m21":0.0,"m24":0.0,"m25":401.45,"p":497.8},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Taxman Peru S.A.C.","ruc":"20615495728","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":2475.0,"m06":-2475.0,"m10":-2475.0,"m12":-2475.0,"m14":-2475.0,"m17":-2475.0,"m19":0.0,"m21":-2475.0,"m24":-495.0,"m25":-495.0,"p":-19.8},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"VIDASANAHORIA S.A.C.","ruc":"20602754163","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":28.78,"m06":-32.31,"m10":-32.31,"m12":-32.31,"m14":-32.31,"m17":-32.31,"m19":0.0,"m21":-28.78,"m24":-28.78,"m25":66.08,"p":88.85},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"KUSIMAYO","ruc":"20517245420","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":-431.02,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"GRUPO BIBO S.A.C.","ruc":"20604591440","mes":"Abril","t":"ADDS","pot":85000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"Zual Autos S.A.C.","ruc":"20613870556","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"ZUAL AUTOMECANICA S.A.C.","ruc":"20614132389","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"ZUAL CARS S.A.C.","ruc":"20610118217","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"Abril","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Las Paulinas S.A.C.","ruc":"20615511081","mes":"Abril","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"OBANDO TORRES REMY GEZEER - RECUPERO","ruc":"10723794574","mes":"Abril","t":"NEWS","pot":45000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"TRIPLE A GROUP SOCIEDAD ANONIMA CERRADA","ruc":"20611402768","mes":"Mayo","t":"NEWS","pot":250000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":39353.83,"m12":52683.49,"m14":71296.16,"m17":120124.37,"m19":142157.29,"m21":168943.5,"m24":204804.27,"m25":206635.99,"p":256228.63},{"h":"YASMIN CHECA","col":"#888780","r":"ENTREMARES INTERNACIONAL S.A.C.","ruc":"20506199825","mes":"Mayo","t":"ADDS","pot":150000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":2133.79,"m14":8444.37,"m17":21893.34,"m19":32104.28,"m21":40482.88,"m24":54413.99,"m25":57276.77,"p":71023.2},{"h":"ROCK LLANOS","col":"#84CC16","r":"Corporacion 3H S.A.C.","ruc":"20611522682","mes":"Mayo","t":"NEWS","pot":80000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":20582.2,"m19":28795.14,"m21":28795.14,"m24":28795.14,"m25":28795.14,"p":35705.97},{"h":"YASMIN CHECA","col":"#888780","r":"ZIMMERMANN S.A.C","ruc":"20100349818","mes":"Mayo","t":"NEWS","pot":150000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":2227.25,"m17":14597.29,"m19":22210.66,"m21":29413.38,"m24":40852.31,"m25":43761.26,"p":54263.96},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"Importadora Miyakawa SAC","ruc":"20601508452","mes":"Mayo","t":"NEWS","pot":80000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":40.47,"m10":4063.34,"m12":5845.65,"m14":8085.41,"m17":15395.02,"m19":20209.2,"m21":22624.58,"m24":26483.16,"m25":27952.43,"p":34661.01},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"Euro Bus S.A.C.","ruc":"20601431751","mes":"Mayo","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":817.71,"m14":1356.01,"m17":8855.93,"m19":16630.9,"m21":21876.8,"m24":30044.39,"m25":31510.69,"p":39073.25},{"h":"FRANCO ROUILLON","col":"#F97316","r":"MORE VILCHEZ CRISTOBAL","ruc":"10401857813","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":33.0,"m10":2662.0,"m12":3945.06,"m14":5917.65,"m17":9465.64,"m19":12172.05,"m21":13784.1,"m24":16967.5,"m25":17672.05,"p":21913.34},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":".MARTINEZ ANDRADE TANY STEPHANIE","ruc":"10704429661","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":13850.27,"m10":2224.89,"m12":2669.87,"m14":3114.85,"m17":8099.07,"m19":9051.9,"m21":10004.73,"m24":19918.11,"m25":20748.03,"p":25727.55},{"h":"MARIA FLORES","col":"#EC4899","r":"Talcast S.A.C.","ruc":"20615639339","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":124.36,"m10":1045.0,"m12":1274.84,"m14":1827.74,"m17":2437.89,"m19":3005.2,"m21":3005.2,"m24":3879.7,"m25":3967.7,"p":4919.95},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"CENTRO DE DESARROLLO INTEGRAL ESTETICA Y ASESORIA EMPRESARIA","ruc":"20609174839","mes":"Mayo","t":"NEWS","pot":80000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":896.21,"m14":1045.58,"m17":1328.68,"m19":1485.0,"m21":1485.0,"m24":3338.5,"m25":3338.5,"p":4139.74},{"h":"ROSA TORRES","col":"#6BCF7F","r":"Casa Peluchin Studio S.A.C.","ruc":"20615844536","mes":"Mayo","t":"NEWS","pot":60000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":388.24,"m17":799.18,"m19":1151.7,"m21":1311.2,"m24":1366.2,"m25":1460.25,"p":1810.71},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"LE REVE S A C","ruc":"20518166337","mes":"Mayo","t":"ADDS","pot":250000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":4.79,"m19":2295.59,"m21":9003.52,"m24":37064.98,"m25":37953.28,"p":47062.07},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"CLINICA MEDICA ZEGARRA S.A.C.","ruc":"20512867741","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":4.05,"m17":4.92,"m19":5.5,"m21":6.08,"m24":1670.98,"m25":1953.95,"p":2422.89},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"Sala Mandra Producciones SAC","ruc":"20614735806","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":2.08,"m14":2.43,"m17":2.95,"m19":3.3,"m21":78.1,"m24":2577.3,"m25":2577.3,"p":3195.85},{"h":"ANALIZ CASTILLO","col":"#F59E0B","r":"RED DE CONSORCIO DE TELECOMUNICACIONES AVANZADAS S.A.C.","ruc":"20600237455","mes":"Mayo","t":"NEWS","pot":50000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":34557.97,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"LUCUMA CATERING SAC","ruc":"20603193467","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"MARIA FLORES","col":"#EC4899","r":"Marita La Reina EIRL","ruc":"20614426951","mes":"Mayo","t":"ADDS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"YASMIN CHECA","col":"#888780","r":"Vetcomir E.I.R.L.","ruc":"20615720748","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":2253.9,"m24":6058.25,"m25":6058.25,"p":7512.23},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Finisher Cafe S.A.C.","ruc":"20612548251","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","r":"Firenze Novios S.A.C.","ruc":"20613328433","mes":"Mayo","t":"NEWS","pot":25000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"YASMIN CHECA","col":"#888780","r":"INVERSIONES COSSIO EIRL","ruc":"20614142091","mes":"Mayo","t":"NEWS","pot":60000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANDREA SOTO","col":"#FFD93D","r":"SOLUCIONES INTEGRALES EL SIAR EMPRESA INDIVIDUAL DE RESPONSA","ruc":"20525558682","mes":"Mayo","t":"ADDS","pot":60000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":4058.04,"m24":4058.04,"m25":4058.04,"p":5031.97},{"h":"PATRICIA ASTORGA","col":"#00E5A0","r":"MASAMAMA SOCIEDAD ANONIMA CERDADA - MASAMAMA S.A.C.","ruc":"20603278446","mes":"Mayo","t":"ADDS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANDREA SOTO","col":"#FFD93D","r":"Montes Y Taboada S.A.C.","ruc":"20611771941","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":14946.33,"m24":36965.96,"m25":44174.15,"p":54775.94},{"h":"FRANCO ROUILLON","col":"#F97316","r":"TITO CUEVAS ODILIA","ruc":"10154265118","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":2.2,"m24":10.45,"m25":10.45,"p":12.96},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","r":"GIOVANNA KARINA MELENDEZ CHAVEZ","ruc":"10409566303","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ROSA TORRES","col":"#6BCF7F","r":"MORENO MEDINA ERIKA ELIZABETH","ruc":"10068039342","mes":"Mayo","t":"ADDS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ANA CARRERA","col":"#A855F7","r":"Salazar Seminario Cesar Roberto","ruc":"10458451031","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":166.33,"m19":185.9,"m21":587.4,"m24":3942.4,"m25":3942.4,"p":4888.58},{"h":"ANA CARRERA","col":"#A855F7","r":"Chirinos Santoyo Heylen Maria","ruc":"10722848158","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":1.1,"m21":746.9,"m24":4084.3,"m25":4747.6,"p":5887.02},{"h":"ROSA TORRES","col":"#6BCF7F","r":"FRANCO Y RODRIGUEZ S.A.C.","ruc":"20602733476","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":4.4,"m25":1147.3,"p":1422.65},{"h":"ALICIA QUINONES","col":"#FF8C42","r":"INVERSIONES NIGAC S","ruc":"20615553621","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":1.1,"m21":1.1,"m24":257.4,"m25":360.8,"p":447.39},{"h":"YASMIN CHECA","col":"#888780","r":"Kamoki Negociaciones SAC","ruc":"20612960896","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":1.1,"m24":1.1,"m25":1.1,"p":1.36},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","r":"BARZOLA PIZARRO DINO JONIS","ruc":"10066677775","mes":"Mayo","t":"ADDS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":130.49,"p":161.8},{"h":"ANDREA SOTO","col":"#FFD93D","r":"CLINICA UNIVERSITARIA DEL NORTE S.A.C.","ruc":"20380605890","mes":"Mayo","t":"NEWS","pot":200000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":2.2,"m25":2.2,"p":2.73},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":".PASTIRED EIRL","ruc":"20614196026","mes":"Mayo","t":"ADDS","pot":40000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","r":"Inversiones Papeo S.A.C.","ruc":"20615736342","mes":"Mayo","t":"NEWS","pot":40000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":0.0,"m25":0.0,"p":0.0},{"h":"ROCK LLANOS","col":"#84CC16","r":"Chirinos Santoyo Heylen Maria","ruc":"10722848158","mes":"Mayo","t":"NEWS","pot":60000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":0.0,"m21":0.0,"m24":4084.3,"m25":4747.6,"p":5887.02},{"h":"YASMIN CHECA","col":"#888780","r":"Vetcosur E.I.R.L.","ruc":"20615718182","mes":"Mayo","t":"NEWS","pot":30000.0,"f":0.0,"m":0.0,"a30":0.0,"m06":0.0,"m10":0.0,"m12":0.0,"m14":0.0,"m17":0.0,"m19":1310.1,"m21":1326.6,"m24":7301.8,"m25":7301.8,"p":9054.23}];
+const CTS2=[{"h":"","col":"#9AA5B4","team":"other","r":"AQUAPARK HUACHIPA S.A.C.","ruc":"20514038512","mes":"FEBRERO","t":"ADDS","pot":80000,"f":48510,"m":-48510,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"Cafe Tostado S.A.C.","ruc":"20614711443","mes":"FEBRERO","t":"NEWS","pot":50000,"f":39372,"m":11793,"a30":-7193,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-673,"p":7654},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"CIRCULO DE OFICIALES DE LA SANIDAD DE LAS FUERZAS POLICIALES","ruc":"20136926455","mes":"FEBRERO","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"CONSORCIO CENTRO CIVICO SAC","ruc":"20605283781","mes":"FEBRERO","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4913,"p":5858},{"h":"","col":"#9AA5B4","team":"other","r":"Corporacion Pluton S.A.C.","ruc":"20614354187","mes":"FEBRERO","t":"NEWS","pot":25000,"f":2998,"m":-2426,"a30":7574,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-6606,"p":-6310},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"Saskya Tatiana Rodriguez Hinostroza","ruc":"77281732","mes":"FEBRERO","t":"NEWS","pot":30000,"f":20642,"m":12199,"a30":4753,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":3701,"p":11642},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Corporacion Brasas Del Peru S.A.C.","ruc":"20612146790","mes":"FEBRERO","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"FSG HAIR DESIGNER EIRL","ruc":"20602969194","mes":"FEBRERO","t":"NEWS","pot":70000,"f":16117,"m":98310,"a30":-10974,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":29954,"p":55609},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"FASGAM E.I.R.L.","ruc":"20610458999","mes":"FEBRERO","t":"NEWS","pot":70000,"f":5572,"m":86556,"a30":-66383,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":32242,"p":43393},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"SANCHEZ GONZALEZ FLAVIO ANDRE","ruc":"10475121762","mes":"FEBRERO","t":"NEWS","pot":25000,"f":13332,"m":92153,"a30":-28819,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-4701,"p":9138},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"INVERSIONES ROBIN S.A.C.","ruc":"20607715778","mes":"FEBRERO","t":"ADDS","pot":25000,"f":0,"m":6014,"a30":-6014,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"CONSORCIO DE IMPORT Y EXPORT LOCERIA CUSCO SAC","ruc":"20521326574","mes":"FEBRERO","t":"NEWS","pot":50000,"f":23384,"m":41792,"a30":-3482,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-6409,"p":4223},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"Cocihogar Import Sociedad Anonima Cerrada   Cociho","ruc":"20612651621","mes":"FEBRERO","t":"NEWS","pot":180000,"f":10832,"m":29374,"a30":-33158,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-4207,"p":-3661},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Nature  Cheese EIRL","ruc":"20614900041","mes":"FEBRERO","t":"NEWS","pot":30000,"f":3586,"m":45293,"a30":-20403,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":39733,"p":52851},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"ARIZAPANA CONDORI VLADIMIR","ruc":"10444771530","mes":"FEBRERO","t":"NEWS","pot":25000,"f":7779,"m":29554,"a30":10897,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-17711,"p":-11842},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Panalia S.A.C.","ruc":"20614986728","mes":"FEBRERO","t":"NEWS","pot":300000,"f":272,"m":277468,"a30":290534,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-22706,"p":82211},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Pastired Eirl","ruc":"20614196026","mes":"FEBRERO","t":"NEWS","pot":300000,"f":438,"m":266774,"a30":298000,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-10113,"p":96637},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Zual Automecanica S.A.C.","ruc":"20614132389","mes":"FEBRERO","t":"NEWS","pot":50000,"f":90,"m":542,"a30":1205,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":2134,"p":2898},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"ZUAL CARS S.A.C.","ruc":"20610118217","mes":"FEBRERO","t":"NEWS","pot":50000,"f":1,"m":98,"a30":-99,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Zual Autos S.A.C.","ruc":"20613870556","mes":"FEBRERO","t":"NEWS","pot":50000,"f":96,"m":6445,"a30":-6161,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":5,"p":80},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"FEBRERO","t":"ADDS","pot":30000,"f":1,"m":-1,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"CREACIONES RASYR S.A.C.","ruc":"20550843863","mes":"FEBRERO","t":"ADDS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"C & C PHARM SAC","ruc":"20608382781","mes":"FEBRERO","t":"NEWS","pot":50000,"f":3,"m":76439,"a30":-21164,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":12458,"p":25484},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"LAVANDERIA SAORI S A","ruc":"20100960495","mes":"FEBRERO","t":"NEWS","pot":75000,"f":0,"m":11126,"a30":89440,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-9155,"p":8424},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"SAORI CLEAN CARE EIRL","ruc":"20611309318","mes":"FEBRERO","t":"NEWS","pot":75000,"f":0,"m":17427,"a30":87679,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-3930,"p":15526},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"YATOKU S.A.","ruc":"20507784951","mes":"FEBRERO","t":"NEWS","pot":75000,"f":0,"m":9305,"a30":41961,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-4742,"p":4205},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"DASSO DRY CLEANER E.I.R.L","ruc":"20512576851","mes":"MARZO","t":"NEWS","pot":75000,"f":0,"m":10868,"a30":127001,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-13590,"p":10310},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"BERNACHEA HILARIO MARJORIE MARICIELO","ruc":"10609881912","mes":"MARZO","t":"ADDS","pot":25000,"f":0,"m":4358,"a30":1199,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-963,"p":-79},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"MARZO","t":"ADDS","pot":30000,"f":0,"m":21,"a30":-21,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"ARABICA S.A.C.","ruc":"20456507230","mes":"MARZO","t":"NEWS","pot":80000,"f":0,"m":59980,"a30":24676,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":6623,"p":24176},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Red Tours Eirl","ruc":"20544980395","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":2,"p":2},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"WOSAK SAC","ruc":"20547709013","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":2468,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":237573,"p":283735},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"ONCO PREV INTERNACIONAL SAC","ruc":"20549391088","mes":"MARZO","t":"ADDS","pot":25000,"f":0,"m":0,"a30":9947,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-9947,"p":-9947},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"PULSE SAC","ruc":"20604592420","mes":"MARZO","t":"NEWS","pot":250000,"f":0,"m":279131,"a30":87547,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":17226,"p":91053},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"COMERCIAL TODO TENGO SAC","ruc":"20606545232","mes":"MARZO","t":"NEWS","pot":150000,"f":0,"m":167865,"a30":65833,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-6462,"p":37237},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"Inversiones Ainc E.I.R.L.","ruc":"20607748757","mes":"MARZO","t":"NEWS","pot":150000,"f":0,"m":66706,"a30":112523,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-14247,"p":17480},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"TECHNOLOGICAL CONSULTING S.A.C.","ruc":"20608507141","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"GRUPO CERFER SOCIEDAD ANONIMA CERRADA","ruc":"20609084091","mes":"MARZO","t":"NEWS","pot":100000,"f":0,"m":82,"a30":14468,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-5417,"p":-3660},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"ANDA INTERNACIONAL INDIVIDUAL DE RESPONSABILIDAD LIMITADA - ANDA INTERNACIONAL E","ruc":"20609451522","mes":"MARZO","t":"NEWS","pot":1000000,"f":0,"m":427616,"a30":403802,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":43586,"p":211856},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"RUNA ASOCIADOS SAC","ruc":"20612978728","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":34300,"a30":3537,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":6585,"p":15128},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Estudio Ubillus Y Asociados Peru S.A.C.","ruc":"20614594561","mes":"MARZO","t":"NEWS","pot":50000,"f":0,"m":74609,"a30":-9039,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-7792,"p":3319},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"H Y S Helados S.A.C.","ruc":"20614701634","mes":"MARZO","t":"NEWS","pot":50000,"f":0,"m":52538,"a30":30650,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-21988,"p":0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"ESSENCE 11 EIRL","ruc":"20613594974","mes":"MARZO","t":"NEWS","pot":60000,"f":0,"m":16630,"a30":62695,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-28892,"p":0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"AIB INVESTMENTS E.I.R.L.","ruc":"20612689793","mes":"MARZO","t":"NEWS","pot":50000,"f":0,"m":11006,"a30":73802,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-36011,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"VICMAR GROUP S.A.C.","ruc":"20566129982","mes":"MARZO","t":"ADDS","pot":50000,"f":0,"m":26973,"a30":30672,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":26806,"p":43047},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"MARAVI SALON SPA E.I.R.L.","ruc":"20610737308","mes":"MARZO","t":"ADDS","pot":30000,"f":0,"m":0,"a30":400,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1150,"p":1448},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"C Y C PHARM SAC","ruc":"20608382781","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":2546,"a30":10801,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-7253,"p":-6081},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"Berrocal Candela Piero Adrian","ruc":"10744174126","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":4811,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-4660,"p":-4631},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Zaga Auto Center S.A.C.","ruc":"20615208443","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":18520,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-3643,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"GALWAY INVERSIONES SOCIEDAD ANONIMA CERRADA","ruc":"20612227382","mes":"MARZO","t":"NEWS","pot":200000,"f":0,"m":34322,"a30":83687,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-73458,"p":-64891},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"ZAGA CORP SAC","ruc":"20606621931","mes":"MARZO","t":"NEWS","pot":50000,"f":0,"m":0,"a30":23135,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":16645,"p":24295},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"MASAMAMA SOCIEDAD ANONIMA CERDADA - MASAMAMA S.A.C.","ruc":"20603278446","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":29366,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":85528,"p":107623},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Grupo El Rey De Las Papas S.A.C.","ruc":"20613350684","mes":"MARZO","t":"NEWS","pot":200000,"f":0,"m":0,"a30":125850,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-6466,"p":16492},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"CLINICA MEDICA ZEGARRA S.A.C.","ruc":"20512867741","mes":"MARZO","t":"NEWS","pot":150000,"f":0,"m":0,"a30":110895,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":65225,"p":99094},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"CORK INVERSIONES SAC","ruc":"20614554755","mes":"MARZO","t":"NEWS","pot":150000,"f":0,"m":10375,"a30":120656,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-23988,"p":-3402},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"TURISMO ESPINOZA EIRL","ruc":"20428474881","mes":"MARZO","t":"NEWS","pot":50000,"f":0,"m":100617,"a30":-11291,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-14407,"p":0},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"D TODO CERAMICA","ruc":"20603463472","mes":"MARZO","t":"ADDS","pot":100000,"f":0,"m":70000,"a30":35000,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-16935,"p":0},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"BIOBODEGA LAS VACAS E.I.R.L.","ruc":"20557687905","mes":"MARZO","t":"ADDS","pot":100000,"f":0,"m":0,"a30":70000,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-35000,"p":-28269},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"REEN FELSEN S.A.C.","ruc":"20612877301","mes":"MARZO","t":"NEWS","pot":25000,"f":0,"m":15777,"a30":67725,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-31658,"p":0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"RED DE CONSORCIO DE TELECOMUNICACIONES AVANZADAS S.A.C.","ruc":"20600237455","mes":"ABRIL","t":"NEWS","pot":250000,"f":0,"m":0,"a30":40229,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":459390,"p":555471},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"AUTOPARTES IMPORTACION S.A.C.","ruc":"20600804791","mes":"ABRIL","t":"NEWS","pot":200000,"f":0,"m":0,"a30":316912,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":13964,"p":77594},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"BEIT GROUP PERU SAC","ruc":"20605867163","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":74482,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":64541,"p":91276},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"BEIT GROUP PERU S.A.C. - PILLIN RECUPERO","ruc":"20605867163 ","mes":"ABRIL","t":"NEWS","pot":100000,"f":0,"m":0,"a30":99000,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":7700,"p":28219},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"INVERSIONES FARMACEUTICAS KALLPA S.A.C.","ruc":"20536865595","mes":"ABRIL","t":"ADDS","pot":200000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":126263,"p":150545},{"h":"ROCK LLANOS","col":"#84CC16","team":"ana","r":"INVERSIONES Y PROYECTOS ML E.I.R.L.","ruc":"20605219013","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":12364,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":48107,"p":59736},{"h":"ROCK LLANOS","col":"#84CC16","team":"ana","r":"C Y M Distribuciones Y Logistica S.A.C.","ruc":"20614502321","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":78388,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-1324,"p":13496},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"TIENDAS GIRASOLES S.R.L.","ruc":"20498263381","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":12935,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":54362,"p":67304},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"SASTRERIA FIRENZE SAC","ruc":"20606829273","mes":"ABRIL","t":"NEWS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":52965,"p":63151},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"GRUPO VOGUE LISS S.A.C.","ruc":"20602359566","mes":"ABRIL","t":"NEWS","pot":200000,"f":0,"m":0,"a30":36792,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":23372,"p":34942},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"PGR ODONTOLOGIA ESPECIALIZADA S.A.C.","ruc":"20543244725","mes":"ABRIL","t":"NEWS","pot":50000,"f":0,"m":0,"a30":10830,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":42468,"p":52718},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"DREAMS TRUE EXPERIENCIAS SAC","ruc":"20612114821","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":65782,"p":78433},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":".MARTINEZ ANDRADE TANY STEPHANIE","ruc":"10704429661","mes":"ABRIL","t":"NEWS","pot":50000,"f":0,"m":0,"a30":10927,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":33259,"p":41756},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"CHIQUITEX - RECUPERO","ruc":"20604304360","mes":"ABRIL","t":"NEWS","pot":180000,"f":0,"m":0,"a30":30800,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":5923},{"h":"MARIA FLORES","col":"#EC4899","team":"carlos","r":"Mitma Navarro Helen Vanessa","ruc":"10700406526","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":13120,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":26438,"p":34045},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Consultorios Dermatologicos De La Piel S.A.C.","ruc":"20615511103","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":43483,"p":51845},{"h":"","col":"#9AA5B4","team":"other","r":"INVERSIONES COSSIO EIRL","ruc":"20614142091","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":35092,"p":41840},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"DISTRIBUIDORA RUSS E.I.R.L.","ruc":"20610166246","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":274,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":21291,"p":25438},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"Jspg E.I.R.L.","ruc":"20610981985","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":3579,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":28302,"p":34433},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"Inversiones Kur Saal S.A.C.","ruc":"20613135082","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":36177,"p":43134},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"TRIPLE A GROUP SOCIEDAD ANONIMA CERRADA","ruc":"20611402768","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":13646,"p":16270},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"ZAVALA CARLIN ROXANA","ruc":"10099950892","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":3138,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":7703,"p":9788},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"LAVANDERIA SAORI S A","ruc":"20100960495","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":5153,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":567,"p":1667},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"IMPORT EXPORT PERFECTA - RECUPERO","ruc":"20565608313","mes":"ABRIL","t":"NEWS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":5500,"p":6558},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"INVERSIONES EL ZAGUAN SOCIEDAD ANONIMA CERRADA","ruc":"20608134787","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":5044,"p":6013},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"NORTH GEM SOCIEDAD ANONIMA CERRADA - RECUPERO","ruc":"20611953799","mes":"ABRIL","t":"NEWS","pot":45000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4400,"p":5246},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"Jara Rivas Lady Laura","ruc":"10473688781","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":864,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1007,"p":1367},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Alimentos Italianos En Peru SAC","ruc":"20613526332","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":718,"p":856},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"NFS IMPORT AUTOMOTRIZ E.I.R.L.","ruc":"20609591014","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":676,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":3064,"p":3783},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Firenze Novios S.A.C.","ruc":"20613328433","mes":"ABRIL","t":"NEWS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1,"p":1},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"EMPRESA MUNICIPAL SANTIAGO DE SURCO S.A.-EMUSS S.A.","ruc":"20502733851","mes":"ABRIL","t":"ADDS","pot":80000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Red Tours Eirl","ruc":"20544980395","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"HELADERIA MARTORELL S.A.C.","ruc":"20610054090","mes":"ABRIL","t":"ADDS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"SAORI CLEAN CARE EIRL","ruc":"20611309318","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":401,"p":479},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Taxman Peru S.A.C.","ruc":"20615495728","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":2475,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":-495,"p":-114},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"VIDASANAHORIA S.A.C.","ruc":"20602754163","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":29,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":66,"p":84},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"KUSIMAYO","ruc":"20517245420","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"GRUPO BIBO S.A.C.","ruc":"20604591440","mes":"ABRIL","t":"ADDS","pot":85000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Zual Autos S.A.C.","ruc":"20613870556","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"ZUAL AUTOMECANICA S.A.C.","ruc":"20614132389","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"ZUAL CARS S.A.C.","ruc":"20610118217","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"AUTOMECANICA SAN MIGUEL SRL","ruc":"20114136094","mes":"ABRIL","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Las Paulinas S.A.C.","ruc":"20615511081","mes":"ABRIL","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"OBANDO TORRES REMY GEZEER - RECUPERO","ruc":"10723794574","mes":"ABRIL","t":"NEWS","pot":45000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"TRIPLE A GROUP SOCIEDAD ANONIMA CERRADA","ruc":"20611402768","mes":"MAYO","t":"NEWS","pot":250000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":212102,"p":252891},{"h":"","col":"#9AA5B4","team":"other","r":"ENTREMARES INTERNACIONAL S.A.C.","ruc":"20506199825","mes":"MAYO","t":"ADDS","pot":150000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":61555,"p":73393},{"h":"ROCK LLANOS","col":"#84CC16","team":"ana","r":"Corporacion 3H S.A.C.","ruc":"20611522682","mes":"MAYO","t":"NEWS","pot":80000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":28795,"p":34333},{"h":"","col":"#9AA5B4","team":"other","r":"ZIMMERMANN S.A.C","ruc":"20100349818","mes":"MAYO","t":"NEWS","pot":150000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":47595,"p":56748},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"Importadora Miyakawa SAC","ruc":"20601508452","mes":"MAYO","t":"NEWS","pot":80000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":29539,"p":35219},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"Euro Bus S.A.C.","ruc":"20601431751","mes":"MAYO","t":"NEWS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":32889,"p":39214},{"h":"FRANCO ROUILLON","col":"#F97316","team":"ana","r":"MORE VILCHEZ CRISTOBAL","ruc":"10401857813","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":17969,"p":21425},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":".MARTINEZ ANDRADE TANY STEPHANIE","ruc":"10704429661","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":21578,"p":25728},{"h":"MARIA FLORES","col":"#EC4899","team":"carlos","r":"Talcast S.A.C.","ruc":"20615639339","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4050,"p":4829},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"CENTRO DE DESARROLLO INTEGRAL ESTETICA Y ASESORIA EMPRESARIA","ruc":"20609174839","mes":"MAYO","t":"NEWS","pot":80000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":3339,"p":3981},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"Casa Peluchin Studio S.A.C.","ruc":"20615844536","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1460,"p":1741},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"LE REVE S A C","ruc":"20518166337","mes":"MAYO","t":"ADDS","pot":250000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":48496,"p":57823},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"CLINICA MEDICA ZEGARRA S.A.C.","ruc":"20512867741","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4076,"p":4860},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"Sala Mandra Producciones SAC","ruc":"20614735806","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":2577,"p":3073},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"RED DE CONSORCIO DE TELECOMUNICACIONES AVANZADAS S.A.C.","ruc":"20600237455","mes":"MAYO","t":"NEWS","pot":50000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"LUCUMA CATERING SAC","ruc":"20603193467","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"MARIA FLORES","col":"#EC4899","team":"carlos","r":"Marita La Reina EIRL","ruc":"20614426951","mes":"MAYO","t":"ADDS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"","col":"#9AA5B4","team":"other","r":"Vetcomir E.I.R.L.","ruc":"20615720748","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":6058,"p":7223},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Finisher Cafe S.A.C.","ruc":"20612548251","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"OLIVER LOPEZ","col":"#4ECDC4","team":"ana","r":"Firenze Novios S.A.C.","ruc":"20613328433","mes":"MAYO","t":"NEWS","pot":25000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"","col":"#9AA5B4","team":"other","r":"INVERSIONES COSSIO EIRL","ruc":"20614142091","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"SOLUCIONES INTEGRALES EL SIAR EMPRESA INDIVIDUAL DE RESPONSA","ruc":"20525558682","mes":"MAYO","t":"ADDS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4058,"p":4838},{"h":"PATRICIA ASTORGA","col":"#00E5A0","team":"ana","r":"MASAMAMA SOCIEDAD ANONIMA CERDADA - MASAMAMA S.A.C.","ruc":"20603278446","mes":"MAYO","t":"ADDS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"Montes Y Taboada S.A.C.","ruc":"20611771941","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":57753,"p":68859},{"h":"FRANCO ROUILLON","col":"#F97316","team":"ana","r":"TITO CUEVAS ODILIA","ruc":"10154265118","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":26,"p":31},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","team":"carlos","r":"GIOVANNA KARINA MELENDEZ CHAVEZ","ruc":"10409566303","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"MORENO MEDINA ERIKA ELIZABETH","ruc":"10068039342","mes":"MAYO","t":"ADDS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Salazar Seminario Cesar Roberto","ruc":"10458451031","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":3942,"p":4701},{"h":"ANA CARRERA","col":"#A855F7","team":"ana","r":"Chirinos Santoyo Heylen Maria","ruc":"10722848158","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4980,"p":5937},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"FRANCO Y RODRIGUEZ S.A.C.","ruc":"20602733476","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1339,"p":1596},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"INVERSIONES NIGAC S","ruc":"20615553621","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":407,"p":485},{"h":"","col":"#9AA5B4","team":"other","r":"Kamoki Negociaciones SAC","ruc":"20612960896","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":1,"p":1},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"BARZOLA PIZARRO DINO JONIS","ruc":"10066677775","mes":"MAYO","t":"ADDS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":191,"p":228},{"h":"ANDREA SOTO","col":"#FFD93D","team":"carlos","r":"CLINICA UNIVERSITARIA DEL NORTE S.A.C.","ruc":"20380605890","mes":"MAYO","t":"NEWS","pot":200000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":2,"p":3},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":".PASTIRED EIRL","ruc":"20614196026","mes":"MAYO","t":"ADDS","pot":40000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","team":"ana","r":"Inversiones Papeo S.A.C.","ruc":"20615736342","mes":"MAYO","t":"NEWS","pot":40000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ROCK LLANOS","col":"#84CC16","team":"ana","r":"Chirinos Santoyo Heylen Maria","ruc":"10722848158","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":4980,"p":5937},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"DYNAMIC MOTORS E.I.R.L","ruc":"20602789749","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ALICIA QUINONES","col":"#FF8C42","team":"ana","r":"San Martin Lmb EIRL","ruc":"20615615375","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ANALIZ CASTILLO","col":"#F59E0B","team":"ana","r":"Parana Asipali Arturo Julio","ruc":"10772597326","mes":"MAYO","t":"NEWS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"MELISA LLACCHUAS","col":"#FF6B9D","team":"carlos","r":"FUTURE WAVE EIRL","ruc":"20612040878","mes":"MAYO","t":"ADDS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"MARIA FLORES","col":"#EC4899","team":"carlos","r":"NZ ARMS S.A.C.","ruc":"20611017261","mes":"MAYO","t":"ADDS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"ROSA TORRES","col":"#6BCF7F","team":"carlos","r":"INCOAZE S.A.C.","ruc":"20557683829","mes":"MAYO","t":"ADDS","pot":60000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":0,"p":0},{"h":"","col":"#9AA5B4","team":"other","r":"Vetcosur E.I.R.L.","ruc":"20615718182","mes":"MAYO","t":"NEWS","pot":30000,"f":0,"m":0,"a30":0,"m06":0,"m10":0,"m12":0,"m14":0,"m17":0,"m19":0,"m21":0,"m24":0,"m25":0,"m26":9573,"p":11414}];
+
 const TRAJ2=[
   {fullname:'MELISSA VASQUEZ',label:'MV',borderColor:'#FF6B6B',data:[23386.0,548394.0,515177.0,-822537.0,-501337.1,-404175.1,-357123.2,-250035.5,279218.0]},
   {fullname:'ROSA TORRES',label:'RT',borderColor:'#6BCF7F',data:[7779.0,29554.0,515252.0,-368108.0,-265805.3,-297283.0,-128354.1,-9314.0,400550.0]},
@@ -1136,24 +1165,8 @@ const TRAJ2=[
 const fm=v=>{const a=Math.abs(v);const s=a>=1e6?(a/1e6).toFixed(2)+'M':a>=1000?(a/1000).toFixed(1)+'K':Math.round(a).toLocaleString();return(v<0?'-':'')+'S/.'+s};
 const clrS=s=>s>=80?'#00E5A0':s>=50?'#3B82F6':s>=25?'#F59E0B':'#EF4444';
 const clrP=p=>p>=100?'#00E5A0':p>=50?'#F59E0B':'#EF4444';
-var CHS={};const dc=id=>{if(CHS[id]){CHS[id].destroy();delete CHS[id];}};
-const medals=[' ',' ',' '];
-const dkO=(leg=false)=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:leg,position:'top',labels:{font:{size:10,family:'Outfit'},color:'#4A5568',boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>`${c.dataset.label||''}: ${fm(c.raw||0)}`},bodyFont:{size:10,family:'Outfit'},backgroundColor:'#FFFFFF',titleColor:'#1A202C',bodyColor:'#4A5568',borderColor:'rgba(0,0,0,.12)',borderWidth:1}},scales:{x:{grid:{color:'rgba(0,0,0,.07)'},ticks:{color:'#718096',font:{size:9,family:'Outfit'}}},y:{grid:{color:'rgba(0,0,0,.07)'},ticks:{color:'#718096',font:{size:9,family:'Space Mono'},callback:v=>{const a=Math.abs(v);return(v<0?'-':'')+'S/.'+(a>=1e6?(a/1e6).toFixed(1)+'M':a>=1000?(a/1000).toFixed(0)+'K':a)}}}}});
+var RANK_ABR_SCORES={"ALICIA QUINONES":119.4,"YASMIN CHECA":61.7,"PATRICIA ASTORGA":51.9,"ANALIZ CASTILLO":37.2,"OLIVER LOPEZ":36.2,"CRISTIAN HUAMAN":32.7,"ROSA TORRES":31.7,"ROCK LLANOS":27.9,"ANDREA SOTO":27.6,"FRANCO ROUILLON":25.4,"MELISSA VASQUEZ":19.5,"MELISA LLACCHUAS":16.7,"MARIA FLORES":4.7,"KEVIN PAULINO":0.0};
 
-//    SIDEBAR TOP 5                                           
-const RA5=[...RANK_ABR].sort((a,b)=>b.score-a.score).slice(0,5);
-document.getElementById('sbH').innerHTML=RA5.map(h=>`<div class="sb-hrow"><div class="sb-av" style="background:${h.col}22;color:${h.col}">${h.ini}</div><div class="sb-hn">${h.n}</div><div class="sb-hp" style="color:${clrS(h.score)}">${h.score}%</div></div>`).join('');
-
-//    HUNTER SELECTS                                          
-['hSel','f7h'].forEach(id=>{const s=document.getElementById(id);RANK.filter(r=>r.pos<12).forEach(h=>{const o=document.createElement('option');o.value=h.n;o.textContent=h.n.split(',')[0].trim();s.appendChild(o);});});
-
-//    TABLE HEADER                                            
-document.getElementById('cTH').innerHTML='<th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:left;color:#4A5568">Hunter</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:left;color:#4A5568">Mes</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:left;color:#4A5568">Tipo</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:left;color:#4A5568">Razon Social</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">Potencial</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">Feb</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">Mzo</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">Abr-30</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-06</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-10</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-12</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-14</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-17</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-19</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#718096">May-21</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#00C9FF">May-25</th><th style="font-size:9px;font-weight:700;text-transform:uppercase;padding:7px 8px;border-bottom:2px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.08);background:#f8f9fa;position:sticky;top:0;z-index:2;white-space:nowrap;text-align:right;color:#A855F7">Proy</th>';
-
-//    P1                                                      
-
-//    RANKING ABRIL (proyeccion al dia 30)                      
-const RANK_ABR_SCORES={"ANALIZ CASTILLO": 207.3, "MELISSA VASQUEZ": 164.2, "CRISTIAN HUAMAN": 161.1, "ALICIA QUINONES": 141.7, "ROSA TORRES": 104.1, "OLIVER LOPEZ": 97.4, "PATRICIA ASTORGA": 95.8, "ROCK LLANOS": 47.7, "MELISA LLACCHUAS": 33.7, "ANDREA SOTO": 29.6, "YASMIN CHECA": 26.7, "KEVIN PAULINO": 0.0, "MARIA FLORES": 0.0};
 const RANK_ABR_VALS={"ANALIZ CASTILLO": 672398, "MELISSA VASQUEZ": 563655, "CRISTIAN HUAMAN": 446673, "ALICIA QUINONES": 463589, "ROSA TORRES": 336432, "OLIVER LOPEZ": 363014, "PATRICIA ASTORGA": 263040, "ROCK LLANOS": 114051, "MELISA LLACCHUAS": 94828, "ANDREA SOTO": 11550, "YASMIN CHECA": 3, "KEVIN PAULINO": 0, "MARIA FLORES": 0};
 const RANK_sorted_abr=[...RANK].sort((a,b)=>(RANK_ABR_SCORES[b.n]||0)-(RANK_ABR_SCORES[a.n]||0));
 
@@ -1272,13 +1285,13 @@ const AR=[0,-2168194,-1172793],AP=[2115235,1870151,1662040];
 function bP1(){
   const lb=['Ene','Feb',...DALL],rl=[424922,570244,...MR,...AR],pj=[424922,570244,...MP,...AP],dt=Array(lb.length).fill(null);dt[dt.length-1]=AR[2];
   dc('cMayR');CHS['cMayR']=new Chart(document.getElementById('cMayR'),{type:'line',
-    data:{labels:['May-01','May-06','May-10','May-12','May-14','May-17','May-19','May-21','May-24','May-25'],
+    data:{labels:['May-01','May-06','May-10','May-12','May-14','May-17','May-19','May-21','May-24','May-25','May-26'],
           datasets:[
-            {label:'Real Mayo',data:[0,0,0,0,0,0,0,513131,1486975,1778175],
+            {label:'Real Mayo',data:[0,0,0,0,0,0,0,513131,1486975,1778175,3018650],
              borderColor:'#00C9FF',backgroundColor:'rgba(0,201,255,.06)',
              pointBackgroundColor:'#00C9FF',
              pointRadius:[8,8,8,8,8,8,8],tension:.3,fill:true,borderWidth:2.5},
-            {label:'Proyectado Mayo',data:[0,1368494,3741606,3494677,3344088,3791623,3580301,3552301,3703807,3677502],
+            {label:'Proyectado Mayo',data:[0,1368494,3741606,3494677,3344088,3791623,3580301,3552301,3703807,3677502,3599159],
              borderColor:'rgba(30,30,30,.45)',backgroundColor:'transparent',
              pointBackgroundColor:'rgba(30,30,30,.75)',
              pointRadius:[8,8,8,8,8,8,8],tension:.3,fill:false,borderWidth:1.5,borderDash:[6,4]}
@@ -1299,50 +1312,101 @@ function bP1(){
 
   
   
-  dc('cSco');const _rs=filterRank(RANK_sorted_abr);CHS['cSco']=new Chart(document.getElementById('cSco'),{type:'bar',data:{labels:_rs.map(h=>h.ini),datasets:[{label:'Score Mayo',data:_rs.map(h=>Math.max(0,RANK_ABR_SCORES[h.n]||0)),backgroundColor:_rs.map(h=>clrS(RANK_ABR_SCORES[h.n]||0)+'BB'),borderWidth:0,borderRadius:5}]},options:{...dkO(),scales:{x:{grid:{display:false},ticks:{color:'#718096',font:{size:9,family:'Space Mono'}}},y:{grid:{color:'rgba(0,0,0,.07)'},ticks:{color:'#718096',font:{size:9},callback:v=>v+'%'}}}}})
-  //    Top 5                                                 
-  const t5=filterRank(RANK_sorted_abr).slice(0,5);
-  // Donut: Distribucion de Cosechas
-  // Bar chart: Distribucion de Cosechas por mes
-  dc('cCosecha');
-  var _cosLabels=['Febrero','Marzo','Abril','19 Mayo'];
-  var _cosReal=[1529930,2698280,1638541,384265];
-  var _cosProy=[2258468,3983176,2418799,567248];
-  var _cosN=[28,38,47,38];
-  var _cosCols=['#3B82F6','#00E5A0','#A855F7','#F59E0B'];
-  var _fmK=function(v){return 'S/.'+(v>=1e6?(v/1e6).toFixed(2)+'M':Math.round(v/1000)+'K');};
-  CHS['cCosecha']=new Chart(document.getElementById('cCosecha'),{
-    type:'bar',
-    data:{
-      labels:_cosLabels,
-      datasets:[
-        {label:'Real',data:_cosReal,backgroundColor:_cosCols.map(function(c){return c+'CC';}),borderRadius:4,borderWidth:0},
-        {label:'Proyectado',data:_cosProy,backgroundColor:'rgba(150,150,150,0.25)',borderColor:'rgba(150,150,150,0.6)',borderWidth:1,borderRadius:4}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{
-        legend:{position:'top',labels:{font:{size:10,family:'Outfit'},color:'#606F7B',boxWidth:12,padding:10}},
-        tooltip:{callbacks:{
-          label:function(c){return c.dataset.label+': '+_fmK(c.raw);},
-          afterBody:function(ctx){
-            var i=ctx[0].dataIndex;
-            return ['Cuentas: '+_cosN[i]];
-          }
-        },backgroundColor:'#fff',titleColor:'#1A202C',bodyColor:'#4A5568',borderColor:'rgba(0,0,0,.12)',borderWidth:1}
+  dc('cSco');
+  (function(){
+    var el=document.getElementById('cSco');if(!el)return;
+    var _rs=filterRank(RANK_sorted_abr);
+    var _lmap={"ALICIA QUINONES":"Alicia Q.","MELISSA VASQUEZ":"Melissa V.","MELISA LLACCHUAS":"Melisa Ll.","ROSA TORRES":"Rosa T.","ANDREA SOTO":"Andrea S.","YASMIN CHECA":"Yasmin Ch.","MARIA FLORES":"Maria Fl.","KEVIN PAULINO":"Kevin P.","OLIVER LOPEZ":"Oliver L.","PATRICIA ASTORGA":"Patricia A.","ANALIZ CASTILLO":"Analiz C.","ROCK LLANOS":"Rock Ll.","FRANCO ROUILLON":"Franco R.","CRISTIAN HUAMAN":"Cristian H."};
+    var _scores=_rs.map(function(h){return Math.max(0,RANK_ABR_SCORES[h.n]||0);});
+    var _labels=_rs.map(function(h){return _lmap[h.n]||h.ini;});
+    var _colors=_rs.map(function(h){
+      var s=RANK_ABR_SCORES[h.n]||0;
+      return s>=100?'rgba(34,197,94,.85)':s>=50?'rgba(245,158,11,.85)':'rgba(239,68,68,.75)';
+    });
+    var _plug={id:'scoLbl',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,m=chart.getDatasetMeta(0);ctx.save();
+      m.data.forEach(function(b,i){
+        var v=_scores[i];if(v<=0)return;
+        ctx.fillStyle='#fff';
+        ctx.font='bold 10px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='bottom';
+        ctx.fillText(v.toFixed(1)+'%',b.x,b.y-3);
+      });
+      ctx.restore();
+    }};
+    CHS['cSco']=new Chart(el,{type:'bar',plugins:[_plug],
+      data:{
+        labels:_labels,
+        datasets:[{
+          label:'Score Mayo',
+          data:_scores,
+          backgroundColor:_colors,
+          borderWidth:0,borderRadius:6,
+          categoryPercentage:0.5,
+          barPercentage:0.8,
+          minBarLength:4
+        }]
       },
-      scales:{
-        x:{grid:{display:false},ticks:{font:{size:10,family:'Outfit'},color:'#606F7B'}},
-        y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:10},color:'#606F7B',callback:function(v){return _fmK(v);}}}
+      options:{responsive:true,maintainAspectRatio:false,
+        layout:{padding:{top:24}},
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{
+            title:function(ctx){return _rs[ctx[0].dataIndex].n;},
+            label:function(ctx){return 'Score: '+ctx.raw.toFixed(1)+'%';}
+          }}
+        },
+        scales:{
+          x:{ticks:{font:{size:11},color:'var(--t2)'},grid:{display:false}},
+          y:{
+            ticks:{callback:function(v){return v+'%';},font:{size:10}},
+            grid:{color:'rgba(0,0,0,.06)'}
+          }
+        }
       }
-    }
-  });
-  // ── FUNNEL PIE ──────────────────────────────────────────────────────────────
+    });
+  })();
+
+  dc('cCosecha');
+  (function(){
+    var el=document.getElementById('cCosecha');if(!el)return;
+    var _real=[213750, 1483911, 746119, 644333];
+    var _proy=[2122093, 3910216, 2403219, 768243];
+    var _lbl=["Febrero", "Marzo", "Abril", "26 Mayo"];
+    var _n=[26, 33, 44, 44];
+    var _fmk=function(v){if(v>=1e6)return 'S/.'+(v/1e6).toFixed(2)+'M';if(v>=1000)return 'S/.'+(v/1000).toFixed(0)+'K';return 'S/.'+v;};
+    var _cosPl={id:'cosL',afterDatasetsDraw:function(chart){var ctx=chart.ctx,_fmk=function(v){if(v>=1e6)return 'S/.'+(v/1e6).toFixed(1)+'M';if(v>=1000)return 'S/.'+(v/1000).toFixed(0)+'K';return 'S/.'+v;};chart.data.datasets.forEach(function(ds,di){var meta=chart.getDatasetMeta(di);if(meta.hidden)return;meta.data.forEach(function(b,i){var v=ds.data[i];if(v>0){ctx.save();ctx.fillStyle=di===0?'#1e293b':'#64748b';ctx.font='bold 10px sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(_fmk(v),b.x,b.y-2);ctx.restore();}});});}};
+CHS['cCosecha']=new Chart(el,{type:'bar',plugins:[_cosPl],
+      data:{labels:_lbl,datasets:[
+        {label:'Real',data:_real,
+          backgroundColor:["rgba(59,130,246,.75)", "rgba(0,229,160,.75)", "rgba(168,85,247,.75)", "rgba(245,158,11,.75)"],
+          borderColor:["#3B82F6", "#00E5A0", "#A855F7", "#F59E0B"],
+          borderWidth:1.5,borderRadius:5},
+        {label:'Proyectado',data:_proy,
+          backgroundColor:["rgba(59,130,246,,.20)", "rgba(0,229,160,,.20)", "rgba(168,85,247,,.20)", "rgba(245,158,11,,.20)"],
+          borderColor:["#3B82F6", "#00E5A0", "#A855F7", "#F59E0B"],
+          borderWidth:1.5,borderRadius:5,borderDash:[3,3]}
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{position:'top',labels:{font:{size:10},boxWidth:10}},
+          tooltip:{callbacks:{label:function(ctx){
+            return ctx.dataset.label+': '+_fmk(ctx.raw)+' ('+_n[ctx.dataIndex]+' ctas)';
+          }}}
+        },
+        scales:{
+          x:{ticks:{font:{size:11}},grid:{display:false}},
+          y:{ticks:{callback:function(v){return _fmk(v);},font:{size:9}},grid:{color:'rgba(0,0,0,.06)'}}
+        }
+      }
+    });
+  })();
+  
   dc('cFunnelPie');
   var _fPie=document.getElementById('cFunnelPie');
   if(_fPie){
-    CHS['cFunnelPie']=new Chart(_fPie,{type:'doughnut',
+    var _cFunnelPieLbl={id:'cFunnelPieLbl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,ds=chart.data.datasets[0];var total=ds.data.reduce(function(a,b){return a+b;},0);chart.getDatasetMeta(0).data.forEach(function(arc,i){var v=ds.data[i];if(v<=0)return;var mid=(arc.startAngle+arc.endAngle)/2,r=(arc.outerRadius+arc.innerRadius)/2;var x=arc.x+Math.cos(mid)*r,y=arc.y+Math.sin(mid)*r;var pct=Math.round(v/total*100);ctx.save();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x,y-6);ctx.fillText('('+pct+'%)',x,y+7);ctx.restore();});}};
+CHS['cFunnelPie']=new Chart(_fPie,{type:'doughnut',plugins:[_cFunnelPieLbl],
       data:{
         labels:['50% Negociaci\u00f3n','75% Pre Cierre'],
         datasets:[{
@@ -1370,21 +1434,52 @@ function bP1(){
 
   // ── FUNNEL BAR (equipo) ──────────────────────────────────────────────────────
   dc('cFunnelBar');
-  var _fBar=document.getElementById('cFunnelBar');
-  if(_fBar){
-    CHS['cFunnelBar']=new Chart(_fBar,{type:'bar',
+  (function(){
+    var el=document.getElementById('cFunnelBar');if(!el)return;
+    var _solC=['S/.1.35M','S/.1.27M','S/.2.36M'];
+    var _solA=['S/.1.72M','S/.30K','S/.2.00M'];
+    var _plug={id:'fbL2',afterDatasetsDraw:function(chart){
+      chart.data.datasets.forEach(function(ds,di){
+        var meta=chart.getDatasetMeta(di);if(meta.hidden)return;
+        var sols=di===0?_solC:_solA;
+        meta.data.forEach(function(b,i){
+          var v=ds.data[i];if(v<=0)return;
+          var barH=Math.abs(b.base-b.y);
+          chart.ctx.save();
+          chart.ctx.fillStyle='#fff';
+          chart.ctx.textAlign='center';
+          if(barH>30){
+            chart.ctx.font='bold 10px sans-serif';
+            chart.ctx.textBaseline='middle';
+            chart.ctx.fillText(v.toFixed(1)+'%',b.x,b.y+barH*0.35);
+            chart.ctx.font='9px sans-serif';
+            chart.ctx.fillText(sols[i],b.x,b.y+barH*0.65);
+          } else {
+            chart.ctx.font='bold 9px sans-serif';
+            chart.ctx.textBaseline='bottom';
+            chart.ctx.fillText(v.toFixed(1)+'%',b.x,b.y-2);
+          }
+          chart.ctx.restore();
+        });
+      });
+    }};
+    CHS['cFunnelBar']=new Chart(el,{type:'bar',plugins:[_plug],
       data:{
-        labels:['50% Negociaci\u00f3n','75% Pre Cierre','Total Funnel'],
+        labels:['50% Negociación','75% Pre Cierre','Total Funnel'],
         datasets:[
-          {label:'Head Carlos',data:[44.0,97.7,58.8],
+          {label:'Head Carlos',data:[44.0,97.7,54.1],
            backgroundColor:'rgba(249,115,22,.80)',borderColor:'#F97316',borderWidth:1.5,borderRadius:5},
-          {label:'Head Ana',data:[56.0,2.3,41.2],
+          {label:'Head Ana',data:[56.0,2.3,45.9],
            backgroundColor:'rgba(168,85,247,.80)',borderColor:'#A855F7',borderWidth:1.5,borderRadius:5}
         ]
       },
       options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:'top',labels:{font:{size:10},boxWidth:10}},
-          tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+': '+ctx.raw+'%';}}}
+        plugins:{
+          legend:{position:'top',labels:{font:{size:10},boxWidth:10}},
+          tooltip:{callbacks:{label:function(ctx){
+            var s=ctx.datasetIndex===0?_solC:_solA;
+            return ctx.dataset.label+': '+ctx.raw.toFixed(1)+'% = '+s[ctx.dataIndex];
+          }}}
         },
         scales:{
           x:{ticks:{font:{size:10}},grid:{display:false}},
@@ -1393,14 +1488,13 @@ function bP1(){
         }
       }
     });
-  }
+  })();
 
-  // ── CUMPLIMIENTO CAPTURA ────────────────────────────────────────────────────
   dc('cCumpl');
   (function(){
     var el=document.getElementById('cCumpl');if(!el)return;
     var _hProy=[3073, 228, 3337, 73700, 148780, 4829, 0, 292590, 57823, 60947, 8840, 40270, 21455, 0];
-    var _hCuota=[250000, 280000, 280000, 280000, 250000, 250000, 250000, 280000, 280000, 280000, 280000, 250000, 250000, 250000];
+    var _hCuota=[280000, 280000, 280000, 280000, 250000, 250000, 250000, 280000, 280000, 280000, 280000, 250000, 250000, 250000];
     var _hNames=["MELISSA VASQUEZ", "MELISA LLACCHUAS", "ROSA TORRES", "ANDREA SOTO", "YASMIN CHECA", "MARIA FLORES", "KEVIN PAULINO", "ALICIA QUINONES", "OLIVER LOPEZ", "PATRICIA ASTORGA", "ANALIZ CASTILLO", "ROCK LLANOS", "FRANCO ROUILLON", "CRISTIAN HUAMAN"];
     var _hTeams=["Head Carlos", "Head Carlos", "Head Carlos", "Head Carlos", "Head Carlos", "Head Carlos", "Head Carlos", "Head Ana", "Head Ana", "Head Ana", "Head Ana", "Head Ana", "Head Ana", "Head Ana"];
     var _hBg=["rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(249,115,22,.80)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(34,197,94,.80)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)", "rgba(239,68,68,.70)"];
@@ -1440,7 +1534,8 @@ function bP1(){
   dc('cRucMeses');
   var _rMeses=document.getElementById('cRucMeses');
   if(_rMeses){
-    CHS['cRucMeses']=new Chart(_rMeses,{type:'doughnut',
+    var _cRucMesesLbl={id:'cRucMesesLbl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,ds=chart.data.datasets[0];var total=ds.data.reduce(function(a,b){return a+b;},0);chart.getDatasetMeta(0).data.forEach(function(arc,i){var v=ds.data[i];if(v<=0)return;var mid=(arc.startAngle+arc.endAngle)/2,r=(arc.outerRadius+arc.innerRadius)/2;var x=arc.x+Math.cos(mid)*r,y=arc.y+Math.sin(mid)*r;var pct=Math.round(v/total*100);ctx.save();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x,y-6);ctx.fillText('('+pct+'%)',x,y+7);ctx.restore();});}};
+CHS['cRucMeses']=new Chart(_rMeses,{type:'doughnut',plugins:[_cRucMesesLbl],
       data:{
         labels:['Mayo 2026','Abril 2026'],
         datasets:[{
@@ -1469,7 +1564,8 @@ function bP1(){
   dc('cRucPot');
   var _rPot=document.getElementById('cRucPot');
   if(_rPot){
-    CHS['cRucPot']=new Chart(_rPot,{type:'doughnut',
+    var _cRucPotLbl={id:'cRucPotLbl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,ds=chart.data.datasets[0];var total=ds.data.reduce(function(a,b){return a+b;},0);chart.getDatasetMeta(0).data.forEach(function(arc,i){var v=ds.data[i];if(v<=0)return;var mid=(arc.startAngle+arc.endAngle)/2,r=(arc.outerRadius+arc.innerRadius)/2;var x=arc.x+Math.cos(mid)*r,y=arc.y+Math.sin(mid)*r;var pct=Math.round(v/total*100);ctx.save();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x,y-6);ctx.fillText('('+pct+'%)',x,y+7);ctx.restore();});}};
+CHS['cRucPot']=new Chart(_rPot,{type:'doughnut',plugins:[_cRucPotLbl],
       data:{
         labels:['≥25K','<25K'],
         datasets:[{
@@ -1602,82 +1698,169 @@ function bP1(){
   dc('cQrEstado');
   (function(){
     var el=document.getElementById('cQrEstado');if(!el)return;
-    CHS['cQrEstado']=new Chart(el,{type:'doughnut',data:{labels:['Activos','Pendientes'],
-      datasets:[{data:[48,18],backgroundColor:['rgba(0,229,160,.82)','rgba(249,115,22,.80)'],
-      borderColor:['#00E5A0','#F97316'],borderWidth:2,hoverOffset:10}]},
+    var _qe1={id:'qe1',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,ds=chart.data.datasets[0];
+      var tot=ds.data.reduce(function(a,b){return a+b;},0);
+      chart.getDatasetMeta(0).data.forEach(function(arc,i){
+        var v=ds.data[i];if(v<=0)return;
+        var mid=(arc.startAngle+arc.endAngle)/2;
+        var r2=(arc.outerRadius+arc.innerRadius)/2;
+        var x=arc.x+Math.cos(mid)*r2,y=arc.y+Math.sin(mid)*r2;
+        ctx.save();ctx.fillStyle='#fff';
+        ctx.font='bold 11px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(v,x,y-6);
+        ctx.fillText('('+Math.round(v/tot*100)+'%)',x,y+7);
+        ctx.restore();
+      });
+    }};
+    CHS['cQrEstado']=new Chart(el,{type:'doughnut',plugins:[_qe1],
+      data:{labels:['≥500 Activos','<500 Pendientes'],
+        datasets:[{data:[48,18],
+          backgroundColor:['rgba(0,229,160,.82)','rgba(249,115,22,.80)'],
+          borderColor:['#00E5A0','#F97316'],borderWidth:2,hoverOffset:10
+        }]
+      },
       options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
         plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){
-          return ctx.label+': '+ctx.raw+' ('+Math.round(ctx.raw/66*100)+'%)';}}}}}});
+          return ctx.label+': '+ctx.raw+' QR';
+        }}}}
+      }
+    });
     var l=document.getElementById('cQrEstadoLgd'),sp='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;background:';
-    if(l)l.innerHTML='<span><span style="'+sp+'#00E5A0"></span>Activos: 48</span>'
-      +'<span style="margin-left:8px"><span style="'+sp+'#F97316"></span>Pendientes: 18</span>';
+    if(l)l.innerHTML='<span><span style="'+sp+'#00E5A0"></span>≥500 Activos: 48</span>'
+      +'<span style="margin-left:8px"><span style="'+sp+'#F97316"></span>&lt;500 Pendientes: 18</span>';
   })();
+
   dc('cQrActivos');
   (function(){
     var el=document.getElementById('cQrActivos');if(!el)return;
-    CHS['cQrActivos']=new Chart(el,{type:'doughnut',data:{labels:['Mayo Activos','Abril Activos'],
-      datasets:[{data:[36,12],backgroundColor:['rgba(0,201,255,.82)','rgba(0,229,160,.80)'],
-      borderColor:['#00C9FF','#00E5A0'],borderWidth:2,hoverOffset:10}]},
+    var _qa1={id:'qa1',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,ds=chart.data.datasets[0];
+      var tot=ds.data.reduce(function(a,b){return a+b;},0);
+      chart.getDatasetMeta(0).data.forEach(function(arc,i){
+        var v=ds.data[i];if(v<=0)return;
+        var mid=(arc.startAngle+arc.endAngle)/2;
+        var r2=(arc.outerRadius+arc.innerRadius)/2;
+        var x=arc.x+Math.cos(mid)*r2,y=arc.y+Math.sin(mid)*r2;
+        ctx.save();ctx.fillStyle='#fff';
+        ctx.font='bold 11px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(v,x,y-6);
+        ctx.fillText('('+Math.round(v/tot*100)+'%)',x,y+7);
+        ctx.restore();
+      });
+    }};
+    CHS['cQrActivos']=new Chart(el,{type:'doughnut',plugins:[_qa1],
+      data:{labels:['Head Carlos','Head Ana'],
+        datasets:[{data:[16,32],
+          backgroundColor:['rgba(249,115,22,.82)','rgba(168,85,247,.80)'],
+          borderColor:['#F97316','#A855F7'],borderWidth:2,hoverOffset:10
+        }]
+      },
       options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
         plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){
-          return ctx.label+': '+ctx.raw+' ('+Math.round(ctx.raw/48*100)+'%)';}}}}}});
+          return ctx.label+': '+ctx.raw+' activos';
+        }}}}
+      }
+    });
     var l=document.getElementById('cQrActivosLgd'),sp='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;background:';
-    if(l)l.innerHTML='<span><span style="'+sp+'#00C9FF"></span>Mayo: 36</span>'
-      +'<span style="margin-left:8px"><span style="'+sp+'#00E5A0"></span>Abril: 12</span>';
+    if(l)l.innerHTML='<span><span style="'+sp+'#F97316"></span>Head Carlos: 16 act.</span>'
+      +'<span style="margin-left:8px"><span style="'+sp+'#A855F7"></span>Head Ana: 32 act.</span>';
   })();
+
   dc('cQrFact');
   (function(){
     var el=document.getElementById('cQrFact');if(!el)return;
-    CHS['cQrFact']=new Chart(el,{type:'doughnut',data:{labels:['Mayo','Abril'],
-      datasets:[{data:[49,17],backgroundColor:['rgba(59,130,246,.82)','rgba(168,85,247,.80)'],
-      borderColor:['#3B82F6','#A855F7'],borderWidth:2,hoverOffset:10}]},
+    var _sols=['S/.243,610','S/.87,974'];
+    var _qf1={id:'qf1',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,ds=chart.data.datasets[0];
+      var tot=ds.data.reduce(function(a,b){return a+b;},0);
+      chart.getDatasetMeta(0).data.forEach(function(arc,i){
+        var v=ds.data[i];if(v<=0)return;
+        var mid=(arc.startAngle+arc.endAngle)/2;
+        var r2=(arc.outerRadius+arc.innerRadius)/2;
+        var x=arc.x+Math.cos(mid)*r2,y=arc.y+Math.sin(mid)*r2;
+        ctx.save();ctx.fillStyle='#fff';
+        ctx.font='bold 10px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(v+' QR',x,y-8);
+        ctx.font='9px sans-serif';
+        ctx.fillText(_sols[i],x,y+4);
+        ctx.fillText('('+Math.round(v/tot*100)+'%)',x,y+15);
+        ctx.restore();
+      });
+    }};
+    CHS['cQrFact']=new Chart(el,{type:'doughnut',plugins:[_qf1],
+      data:{labels:['Mayo','Abril'],
+        datasets:[{data:[49,17],
+          backgroundColor:['rgba(59,130,246,.82)','rgba(168,85,247,.80)'],
+          borderColor:['#3B82F6','#A855F7'],borderWidth:2,hoverOffset:10
+        }]
+      },
       options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
         plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){
-          return ctx.label+': '+ctx.raw+' ('+Math.round(ctx.raw/66*100)+'%)';}}}}}});
+          return ctx.label+': '+ctx.raw+' QR = '+_sols[ctx.dataIndex];
+        }}}}
+      }
+    });
     var l=document.getElementById('cQrFactLgd'),sp='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;background:';
-    if(l)l.innerHTML='<span><span style="'+sp+'#3B82F6"></span>Mayo: 49</span>'
-      +'<span style="margin-left:8px"><span style="'+sp+'#A855F7"></span>Abril: 17</span>';
+    if(l)l.innerHTML='<span><span style="'+sp+'#3B82F6"></span>Mayo: 49 QR = S/.243,610</span>'
+      +'<span style="margin-left:8px"><span style="'+sp+'#A855F7"></span>Abril: 17 QR = S/.87,974</span>';
   })();
 
   dc('cQrCumpl');
   (function(){
     var el=document.getElementById('cQrCumpl');if(!el)return;
-    var _a=[1,5,3,1,3,0,0,5,4,3,4,3,1,3];
+    var _a=[2,5,4,1,4,0,0,7,4,4,8,3,1,4];
     var _n=["MELISSA VASQUEZ","MELISA LLACCHUAS","ROSA TORRES","ANDREA SOTO","YASMIN CHECA","MARIA FLORES","KEVIN PAULINO","ALICIA QUINONES","OLIVER LOPEZ","PATRICIA ASTORGA","ANALIZ CASTILLO","ROCK LLANOS","FRANCO ROUILLON","CRISTIAN HUAMAN"];
     var _t=["Head Carlos","Head Carlos","Head Carlos","Head Carlos","Head Carlos","Head Carlos","Head Carlos","Head Ana","Head Ana","Head Ana","Head Ana","Head Ana","Head Ana","Head Ana"];
-    var _bg=["rgba(239,68,68,.70)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(239,68,68,.70)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(34,197,94,.80)"];
+    var _bg=["rgba(249,115,22,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(239,68,68,.70)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(34,197,94,.80)","rgba(239,68,68,.70)","rgba(34,197,94,.80)"];
     var _bc=["#FF6B6B","#FF6B9D","#6BCF7F","#FFD93D","#888780","#EC4899","#06B6D4","#FF8C42","#4ECDC4","#00E5A0","#F59E0B","#84CC16","#F97316","#00C9FF"];
-    var _plug={id:'qcL',afterDatasetsDraw:function(chart){
-      var c2=chart.ctx,m=chart.getDatasetMeta(0);c2.save();
-      m.data.forEach(function(b,i){var v=_a[i];if(v>0){
+    var _lbl=["Melissa V.","Melisa Ll.","Rosa T.","Andrea S.","Yasmin Ch.","Maria Fl.","Kevin P.","Alicia Q.","Oliver L.","Patricia A.","Analiz C.","Rock Ll.","Franco R.","Cristian H."];
+    var _plug={id:'qcL3',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,m=chart.getDatasetMeta(0);ctx.save();
+      m.data.forEach(function(b,i){
+        var v=_a[i];if(v<=0)return;
         var p=v/3*100;
-        c2.fillStyle=p>=100?'#16A34A':p>=66?'#EA580C':'#DC2626';
-        c2.font='bold 13px sans-serif';c2.textAlign='center';c2.textBaseline='bottom';
-        c2.fillText(v,b.x,b.y-4);}});c2.restore();}};
+        ctx.fillStyle=p>=100?'#16A34A':p>=66?'#EA580C':'#DC2626';
+        ctx.font='bold 13px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='bottom';
+        ctx.fillText(v,b.x,b.y-4);
+      });
+      ctx.restore();
+    }};
     CHS['cQrCumpl']=new Chart(el,{type:'bar',plugins:[_plug],
-      data:{labels:["Melissa V.","Melisa Ll.","Rosa T.","Andrea S.","Yasmin Ch.","Maria Fl.","Kevin P.","Alicia Q.","Oliver L.","Patricia A.","Analiz C.","Rock Ll.","Franco R.","Cristian H."],
+      data:{labels:_lbl,
         datasets:[
-          {label:'QR',data:_a,backgroundColor:_bg,borderColor:_bc,
-           borderWidth:1.5,borderRadius:5,borderSkipped:false,order:1},
-          {label:'Cuota',data:[3,3,3,3,3,3,3,3,3,3,3,3,3,3],type:'line',
+          {label:'QR Mayo+Abril',data:_a,backgroundColor:_bg,
+           borderColor:_bc,borderWidth:1.5,borderRadius:5,borderSkipped:false,order:1},
+          {label:'Cuota (3)',data:[3,3,3,3,3,3,3,3,3,3,3,3,3,3],type:'line',
            borderColor:'rgba(255,255,255,.55)',backgroundColor:'rgba(0,0,0,0)',
            borderWidth:1.5,borderDash:[5,4],pointRadius:0,fill:false,order:0}
-        ]},
+        ]
+      },
       options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24}},
         plugins:{legend:{display:false},tooltip:{callbacks:{
           title:function(ctx){return _n[ctx[0].dataIndex]+' ('+_t[ctx[0].dataIndex]+')';},
-          label:function(ctx){if(ctx.datasetIndex===1)return 'Cuota: 3 QR';
-            return 'QR Mayo: '+ctx.raw+' ('+Math.round(ctx.raw/3*100)+'%)';}
+          label:function(ctx){
+            if(ctx.datasetIndex===1)return 'Cuota: 3 QR';
+            return 'QR Mayo+Abr: '+ctx.raw+' ('+Math.round(ctx.raw/3*100)+'%)';
+          }
         }}},
-        scales:{x:{ticks:{font:{size:10},color:'var(--t2)'},grid:{display:false}},
-          y:{max:7,ticks:{stepSize:1,font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}}
-        }}});
+        scales:{
+          x:{ticks:{font:{size:10},color:'var(--t2)'},grid:{display:false}},
+          y:{max:10,ticks:{stepSize:1,font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}}
+        }
+      }
+    });
   })();
 
   dc('cArisEstado');
   (function(){
     var el=document.getElementById('cArisEstado');if(!el)return;
-    CHS['cArisEstado']=new Chart(el,{type:'doughnut',
+    var _cArisEstadoLbl={id:'cArisEstadoLbl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,ds=chart.data.datasets[0];var total=ds.data.reduce(function(a,b){return a+b;},0);chart.getDatasetMeta(0).data.forEach(function(arc,i){var v=ds.data[i];if(v<=0)return;var mid=(arc.startAngle+arc.endAngle)/2,r=(arc.outerRadius+arc.innerRadius)/2;var x=arc.x+Math.cos(mid)*r,y=arc.y+Math.sin(mid)*r;var pct=Math.round(v/total*100);ctx.save();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x,y-6);ctx.fillText('('+pct+'%)',x,y+7);ctx.restore();});}};
+CHS['cArisEstado']=new Chart(el,{type:'doughnut',plugins:[_cArisEstadoLbl],
       data:{labels:['Con Alta Sunat','Sin Alta Sunat'],
         datasets:[{data:[42,3],
           backgroundColor:['rgba(0,229,160,.82)','rgba(239,68,68,.75)'],
@@ -1694,7 +1877,8 @@ function bP1(){
   dc('cArisTeam');
   (function(){
     var el=document.getElementById('cArisTeam');if(!el)return;
-    CHS['cArisTeam']=new Chart(el,{type:'doughnut',
+    var _cArisTeamLbl={id:'cArisTeamLbl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,ds=chart.data.datasets[0];var total=ds.data.reduce(function(a,b){return a+b;},0);chart.getDatasetMeta(0).data.forEach(function(arc,i){var v=ds.data[i];if(v<=0)return;var mid=(arc.startAngle+arc.endAngle)/2,r=(arc.outerRadius+arc.innerRadius)/2;var x=arc.x+Math.cos(mid)*r,y=arc.y+Math.sin(mid)*r;var pct=Math.round(v/total*100);ctx.save();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x,y-6);ctx.fillText('('+pct+'%)',x,y+7);ctx.restore();});}};
+CHS['cArisTeam']=new Chart(el,{type:'doughnut',plugins:[_cArisTeamLbl],
       data:{labels:['Head Ana','Head Carlos'],
         datasets:[{data:[30,12],
           backgroundColor:['rgba(168,85,247,.82)','rgba(249,115,22,.80)'],
@@ -1706,6 +1890,49 @@ function bP1(){
     var l=document.getElementById('cArisTeamLgd'),sp='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;background:';
     if(l)l.innerHTML='<span><span style="'+sp+'#A855F7"></span>Head Ana: 30 lic (71%)</span>'
       +'<span style="margin-left:8px"><span style="'+sp+'#F97316"></span>Head Carlos: 12 lic (29%)</span>';
+  })();
+
+  dc('cArisSinAlta');
+  (function(){
+    var el=document.getElementById('cArisSinAlta');if(!el)return;
+    var _plug={id:'asaLbl',afterDatasetsDraw:function(chart){
+      var ctx=chart.ctx,ds=chart.data.datasets[0];
+      var tot=ds.data.reduce(function(a,b){return a+b;},0);
+      chart.getDatasetMeta(0).data.forEach(function(arc,i){
+        var v=ds.data[i];if(v<=0)return;
+        var mid=(arc.startAngle+arc.endAngle)/2;
+        var r2=(arc.outerRadius+arc.innerRadius)/2;
+        var x=arc.x+Math.cos(mid)*r2,y=arc.y+Math.sin(mid)*r2;
+        ctx.save();ctx.fillStyle='#fff';
+        ctx.font='bold 11px sans-serif';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(v+' lic',x,y-6);
+        ctx.fillText('('+Math.round(v/tot*100)+'%)',x,y+7);
+        ctx.restore();
+      });
+    }};
+    CHS['cArisSinAlta']=new Chart(el,{type:'doughnut',plugins:[_plug],
+      data:{
+        labels:['Cristian H. (IHI Peru)','Oliver L. (Sofinett)'],
+        datasets:[{data:[2,1],
+          backgroundColor:['rgba(0,201,255,.82)','rgba(245,158,11,.80)'],
+          borderColor:['#00C9FF','#F59E0B'],borderWidth:2,hoverOffset:10
+        }]
+      },
+      options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{label:function(ctx){
+            var vals=['S/.120 · 2 lic','S/.60 · 1 lic'];
+            return ctx.label+': '+vals[ctx.dataIndex];
+          }}}
+        }
+      }
+    });
+    var l=document.getElementById('cArisSinAltaLgd'),sp='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;background:';
+    if(l)l.innerHTML=
+      '<span><span style="'+sp+'#00C9FF"></span>Cristian H: 2 lic S/.120</span>'
+      +'<span style="margin-left:6px"><span style="'+sp+'#F59E0B"></span>Oliver L: 1 lic S/.60</span>';
   })();
 
   dc('cArisCumpl');
@@ -1853,7 +2080,7 @@ function bP3(){
     }
   }
 });
-  // MAYO 2026   dia 25
+  // MAYO 2026   dia 26
   }
 
 //    P4                                                      
@@ -1950,7 +2177,8 @@ function bP4(){
   window.updH=drawMayoEv;
   drawMayoEv();
 }
-const ARIS_TABLE_DATA=[{"h": "PATRICIA ASTORGA", "col": "#00E5A0", "cuenta": "Masamama", "est": "CERRADO", "lic": 8, "val": 807}, {"h": "PATRICIA ASTORGA", "col": "#00E5A0", "cuenta": "Tany Martinez", "est": "CERRADO", "lic": 3, "val": 180}, {"h": "ANALIZ CASTILLO", "col": "#F59E0B", "cuenta": "REDCOTEA S.A.C.", "est": "CERRADO", "lic": 6, "val": 360}, {"h": "MARIA FLORES", "col": "#EC4899", "cuenta": "Talcast (Motivos Spa)", "est": "CERRADO", "lic": 1, "val": 60}, {"h": "CRISTIAN HUAMAN", "col": "#00C9FF", "cuenta": "FINISHER CAFÉ", "est": "CERRADO", "lic": 1, "val": 169}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "cuenta": "INVERSIONES NIGAC  (Pez Dorado)", "est": "CERRADO", "lic": 2, "val": 120}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "cuenta": "Lucuma Catering", "est": "CERRADO", "lic": 1, "val": 60}, {"h": "ROCK LLANOS", "col": "#84CC16", "cuenta": "Cesar Salazar", "est": "CERRADO", "lic": 1, "val": 60}, {"h": "FRANCO ROUILLON", "col": "#F97316", "cuenta": "Cristobal More (Chacarero)", "est": "CERRADO", "lic": 3, "val": 289}, {"h": "ANDREA SOTO", "col": "#FFD93D", "cuenta": "Maria Armellon (farmacia)", "est": "CERRADO", "lic": 1, "val": 60}, {"h": "ROSA TORRES", "col": "#6BCF7F", "cuenta": "CASA PELUCHIN STUDIO", "est": "CERRADO", "lic": 1, "val": 60}, {"h": "ROSA TORRES", "col": "#6BCF7F", "cuenta": "WINES OF PERU", "est": "CERRADO", "lic": 3, "val": 180}, {"h": "MELISSA VASQUEZ", "col": "#FF6B6B", "cuenta": "Sala Mandra", "est": "CERRADO", "lic": 3, "val": 289}, {"h": "CRISTIAN HUAMAN", "col": "#00C9FF", "cuenta": "IHI Peru SAC", "est": "PRE CIERRE", "lic": 2, "val": 120}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "cuenta": "LAURA QUINTANA", "est": "PRE CIERRE", "lic": 1, "val": 60}, {"h": "ROSA TORRES", "col": "#6BCF7F", "cuenta": "INVERSIONES PAPEO SAC", "est": "PRE CIERRE", "lic": 3, "val": 180}, {"h": "OLIVER LOPEZ", "col": "#4ECDC4", "cuenta": "JARA HUANCA MARIA ELENA", "est": "PRE CIERRE", "lic": 1, "val": 60}, {"h": "OLIVER LOPEZ", "col": "#4ECDC4", "cuenta": "SOFINETT ", "est": "PRE CIERRE", "lic": 1, "val": 60}, {"h": "CRISTIAN HUAMAN", "col": "#00C9FF", "cuenta": "Tiendas Don Nico", "est": "PRE CIERRE", "lic": 1, "val": 60}, {"h": "ALICIA QUINONES", "col": "#FF8C42", "cuenta": "Ricardo Soria (Ricobar)", "est": "CERRADO", "lic": 2, "val": 229}];
+const ARIS_TABLE_DATA=[{"h":"PATRICIA ASTORGA","col":"#00E5A0","cuenta":"Masamama","est":"CERRADO","lic":8,"val":807},{"h":"PATRICIA ASTORGA","col":"#00E5A0","cuenta":"Tany Martinez","est":"CERRADO","lic":3,"val":180},{"h":"ANALIZ CASTILLO","col":"#F59E0B","cuenta":"REDCOTEA S.A.C.","est":"CERRADO","lic":6,"val":360},{"h":"MARIA FLORES","col":"#EC4899","cuenta":"Talcast (Motivos Spa)","est":"CERRADO","lic":1,"val":60},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","cuenta":"FINISHER CAFÉ","est":"CERRADO","lic":1,"val":169},{"h":"ALICIA QUINONES","col":"#FF8C42","cuenta":"INVERSIONES NIGAC  (Pez Dorado)","est":"CERRADO","lic":2,"val":120},{"h":"ALICIA QUINONES","col":"#FF8C42","cuenta":"Lucuma Catering","est":"CERRADO","lic":1,"val":60},{"h":"ROCK LLANOS","col":"#84CC16","cuenta":"Cesar Salazar","est":"CERRADO","lic":1,"val":60},{"h":"FRANCO ROUILLON","col":"#F97316","cuenta":"Cristobal More (Chacarero)","est":"CERRADO","lic":3,"val":289},{"h":"ANDREA SOTO","col":"#FFD93D","cuenta":"Maria Armellon (farmacia)","est":"CERRADO","lic":1,"val":60},{"h":"ROSA TORRES","col":"#6BCF7F","cuenta":"CASA PELUCHIN STUDIO","est":"CERRADO","lic":1,"val":60},{"h":"ROSA TORRES","col":"#6BCF7F","cuenta":"WINES OF PERU","est":"CERRADO","lic":3,"val":180},{"h":"MELISSA VASQUEZ","col":"#FF6B6B","cuenta":"Sala Mandra","est":"CERRADO","lic":3,"val":289},{"h":"ALICIA QUINONES","col":"#FF8C42","cuenta":"Ricardo Soria (Ricobar)","est":"CERRADO","lic":2,"val":229},{"h":"ALICIA QUINONES","col":"#FF8C42","cuenta":"LAURA QUINTANA","est":"CERRADO","lic":1,"val":60},{"h":"ROSA TORRES","col":"#6BCF7F","cuenta":"INVERSIONES PAPEO SAC","est":"CERRADO","lic":3,"val":180},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","cuenta":"Tiendas Don Nico","est":"CERRADO","lic":1,"val":60},{"h":"OLIVER LOPEZ","col":"#4ECDC4","cuenta":"JARA HUANCA MARIA ELENA","est":"CERRADO","lic":1,"val":60},{"h":"CRISTIAN HUAMAN","col":"#00C9FF","cuenta":"IHI Peru SAC","est":"PRE CIERRE","lic":2,"val":120},{"h":"OLIVER LOPEZ","col":"#4ECDC4","cuenta":"SOFINETT","est":"PRE CIERRE","lic":1,"val":60}];
+
 
 function bP5(){
   // Filter table data by team
@@ -2058,70 +2286,74 @@ function bP6(){
   const BA='<span style="background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO</span>';
   const BP='<span style="background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE</span>';
   const ROWS=[
-    ['ALICIA QUINONES','JMA PUNTO Y LINEA S.A.C.','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.3,943.57','#FF8C42','27/04/2026','ABRIL'],
-    ['ALICIA QUINONES','DURANGO DIAZ MAGALI JANET','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.6,183.12','#FF8C42','29/04/2026','ABRIL'],
-    ['ALICIA QUINONES','SERRANO FALCON ELCIRA CRISTINA','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.12,547.00','#FF8C42','05/05/2026','MAYO'],
-    ['ALICIA QUINONES','Jesus Elizabeth Hidalgo Cueva','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.36,568.59','#FF8C42','02/05/2026','MAYO'],
-    ['ALICIA QUINONES','ROJAS DAMIAN DIEGO ARMANDO','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.9,359.52','#FF8C42','07/05/2026','MAYO'],
-    ['ALICIA QUINONES','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.5,376.27','#FF8C42','21/05/2026','MAYO'],
-    ['ALICIA QUINONES','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,721.55','#FF8C42','21/05/2026','MAYO'],
-    ['ANA CARRERA','TORRES BRAVO JULIO ANGEL','<span style="background:rgba(245,158,11,.15);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.0.00','#A855F7','16/04/2026','ABRIL'],
-    ['ANA CARRERA','Marketsur Peru J Y M S.A.C.','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.10,837.35','#A855F7','24/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','AYALA SALCEDO EDMIT','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.723.04','#F59E0B','10/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','Alicia Alejandrina Cantaro Jesus','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.852.25','#F59E0B','27/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','PEREYRA MUÑOZ RAUL FERNANDO','<span style="background:rgba(245,158,11,.15);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.0.00','#F59E0B','28/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','CHANCA VERGARA ESTHER PELAYA','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.501.95','#F59E0B','28/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','Puntotec Import Peru Jd E.I.R.L.','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.708.04','#F59E0B','30/04/2026','ABRIL'],
-    ['ANALIZ CASTILLO','Consorcio Empresarial Solano S.A.C.','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,485.64','#F59E0B','09/05/2026','MAYO'],
-    ['ANALIZ CASTILLO','Consorcio Empresarial Solano S.A.C.','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.600.16','#F59E0B','09/05/2026','MAYO'],
-    ['ANALIZ CASTILLO','GIOVANNA KARINA MELENDEZ CHAVEZ','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.7,197.83','#F59E0B','15/05/2026','MAYO'],
-    ['ANALIZ CASTILLO','CURE AGUIRRE YENNY JAZMIN','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,901.78','#F59E0B','15/05/2026','MAYO'],
-    ['ANALIZ CASTILLO','AQUINO RODRIGUEZ LUIS ANTONIO','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.324.51','#F59E0B','20/05/2026','MAYO'],
-    ['ANDREA SOTO','VILCAYAURI MELO JESUS FERNANDO','<span style="background:rgba(245,158,11,.15);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.0.00','#FFD93D','10/04/2026','ABRIL'],
-    ['YASMIN CHECA','Hortencia Catalina Requena Auqui','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,600.46','#888780','07/05/2026','MAYO'],
-    ['YASMIN CHECA','Victoria Consuelo Fernandez Olivera','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,641.76','#888780','07/05/2026','MAYO'],
-    ['ANDREA SOTO','MERINO BUSTIOS CLAUDIA ANA','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,299.58','#FFD93D','07/05/2026','MAYO'],
-    ['CRISTIAN HUAMAN','Angie Nicole Huarcaya Vargas','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.5,862.60','#00C9FF','24/04/2026','ABRIL'],
-    ['CRISTIAN HUAMAN','Rocio Ruth Piro Asado','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,151.83','#00C9FF','05/05/2026','MAYO'],
-    ['CRISTIAN HUAMAN','TOLENTINO LUCIANO ELVA LUZ','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.1,280.92','#00C9FF','07/05/2026','MAYO'],
-    ['CRISTIAN HUAMAN','Abelardo Erick Morales Alpaca','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,305.16','#00C9FF','11/05/2026','MAYO'],
-    ['FRANCO ROUILLON','MORE VILCHEZ CRISTOBAL','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.22,610.04','#F97316','05/05/2026','MAYO'],
-    ['FRANCO ROUILLON','VEGA CAPCHA VICTOR ARLES','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.102.05','#F97316','20/05/2026','MAYO'],
-    ['FRANCO ROUILLON','Cantalicio Zevallos Dina Lucia','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.1.36','#F97316','21/05/2026','MAYO'],
-    ['FRANCO ROUILLON','Gina Janeth Alvarado Dextre','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.288.67','#F97316','23/05/2026','MAYO'],
-    ['FRANCO ROUILLON','MIO BOCANEGRA LUISA PATRICIA','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.161.08','#F97316','22/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','MORENO QUISPE BRENDA DANITZA','<span style="background:rgba(245,158,11,.15);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.481.24','#FF6B9D','27/04/2026','ABRIL'],
-    ['MELISA LLACCHUAS','Nima Rosas Yurico Teresa','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.7,042.33','#FF6B9D','04/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','Asmat Velarde Shirley Fiorella','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.10,740.61','#FF6B9D','04/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','ANDRADE DIESTRO GIOVANNA MIRIAM','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.9,216.42','#FF6B9D','07/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','OJEDA ZUNIGA DALIA RUBI','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,983.07','#FF6B9D','14/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','BRACO COMPANY S.A.C.','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.1.24','#FF6B9D','15/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','BRACO COMPANY S.A.C.','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.1.24','#FF6B9D','15/05/2026','MAYO'],
-    ['MELISA LLACCHUAS','Marlon Victor Vasquez Castro','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.1,275.96','#FF6B9D','21/05/2026','MAYO'],
-    ['MELISSA VASQUEZ','Ana Melva Flores Arana','<span style="background:rgba(245,158,11,.15);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.35.96','#FF6B6B','13/04/2026','ABRIL'],
-    ['MELISSA VASQUEZ','Bartolo Rivera Estanislao Pedro','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.23,635.64','#FF6B6B','30/04/2026','ABRIL'],
-    ['MELISSA VASQUEZ','Zoila Del Carmen Chuquizuta Llaja','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.6.20','#FF6B6B','21/05/2026','MAYO'],
-    ['MELISSA VASQUEZ','Evelin Esthela Hurtado Soto','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.535.31','#FF6B6B','20/05/2026','MAYO'],
-    ['OLIVER LOPEZ','Salazar Bedoya Rosario Marlene','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,788.94','#4ECDC4','07/05/2026','MAYO'],
-    ['OLIVER LOPEZ','NELLY MARTHA AGUIRRE YAULIS','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.5,493.57','#4ECDC4','15/05/2026','MAYO'],
-    ['OLIVER LOPEZ','AQUINO RODRIGUEZ EMERSON','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,390.97','#4ECDC4','20/05/2026','MAYO'],
-    ['OLIVER LOPEZ','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,885.60','#4ECDC4','21/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','Nicole Guillermina Rios Ramos','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.7,201.30','#00E5A0','22/04/2026','ABRIL'],
-    ['PATRICIA ASTORGA','GLENY DORA ORTEGA PADILLA','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.24,108.08','#00E5A0','12/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','Analice Delfina Rengifo Panduro','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.461.16','#00E5A0','14/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','CHRISMARKET E.I.R.L.','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.386.38','#00E5A0','19/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','CHRISMARKET E.I.R.L.','<span style="background:rgba(249,115,22,.15);color:#F97316;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">PENDIENTE ACT.</span>','S/.11.66','#00E5A0','19/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','CHRISMARKET E.I.R.L.','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.10,902.96','#00E5A0','19/05/2026','MAYO'],
-    ['PATRICIA ASTORGA','Erick Freddy Yataco Vasquez','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.989.52','#00E5A0','21/05/2026','MAYO'],
-    ['ROSA TORRES','Jandira Guiliana Rodriguez Farro','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.1,310.68','#6BCF7F','27/04/2026','ABRIL'],
-    ['ROSA TORRES','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.1,923.24','#6BCF7F','21/05/2026','MAYO'],
-    ['ROSA TORRES','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,078.42','#6BCF7F','21/05/2026','MAYO'],
-    ['ROSA TORRES','Hidalgo Cueva Jesus Elizabeth','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.3,278.93','#6BCF7F','21/05/2026','MAYO'],
-    ['YASMIN CHECA','MELENDRIS ORTIZ WILMER CIRO','<span style="background:rgba(0,229,160,.15);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">ACTIVO ABRIL M0</span>','S/.25,729.55','#888780','23/04/2026','ABRIL'],
-    ['ROCK LLANOS','Franco Susanibar Daisy Giovanna','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.11,761.77','#84CC16','07/05/2026','MAYO'],
-    ['ROCK LLANOS','Jose Barrera Garrido Sthefany','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.10,281.34','#84CC16','09/05/2026','MAYO'],
-    ['ROCK LLANOS','Javier Pena Meza Jose','<span style="background:rgba(0,201,255,.15);color:#00C9FF;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">NUEVO MAYO ACTIVO</span>','S/.2,710.52','#84CC16','14/05/2026','MAYO'],
-  ];
+    ["ANDREA SOTO", "VILCAYAURI MELO JESUS FERNANDO", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.3.40", "#FFD93D", "01/04/2026", "ABRIL"],
+    ["ANALIZ CASTILLO", "AYALA SALCEDO EDMIT", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.23.00", "#F59E0B", "01/04/2026", "ABRIL"],
+    ["MELISSA VASQUEZ", "Ana Melva Flores Arana", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.465.90", "#FF6B6B", "01/04/2026", "ABRIL"],
+    ["ANA CARRERA", "TORRES BRAVO JULIO ANGEL", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.16.00", "#A855F7", "01/04/2026", "ABRIL"],
+    ["PATRICIA ASTORGA", "Nicole Guillermina Rios Ramos", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.16.00", "#00E5A0", "01/04/2026", "ABRIL"],
+    ["YASMIN CHECA", "MELENDRIS ORTIZ WILMER CIRO", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.1.00", "#888780", "01/04/2026", "ABRIL"],
+    ["ANA CARRERA", "Marketsur Peru J Y M S.A.C.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.440.20", "#A855F7", "01/04/2026", "ABRIL"],
+    ["CRISTIAN HUAMAN", "Angie Nicole Huarcaya Vargas", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.473.40", "#00C9FF", "01/04/2026", "ABRIL"],
+    ["MELISA LLACCHUAS", "MORENO QUISPE BRENDA DANITZA", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.9.40", "#FF6B9D", "01/04/2026", "ABRIL"],
+    ["ALICIA QUINONES", "JMA PUNTO Y LINEA S.A.C.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.68.50", "#FF8C42", "01/04/2026", "ABRIL"],
+    ["ANALIZ CASTILLO", "Alicia Alejandrina Cantaro Jesus", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.113.00", "#F59E0B", "01/04/2026", "ABRIL"],
+    ["ROSA TORRES", "Jandira Guiliana Rodriguez Farro", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.331.60", "#6BCF7F", "01/04/2026", "ABRIL"],
+    ["ANALIZ CASTILLO", "PEREYRA MUÑOZ RAUL FERNANDO", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.1.00", "#F59E0B", "01/04/2026", "ABRIL"],
+    ["ANALIZ CASTILLO", "CHANCA VERGARA ESTHER PELAYA", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.3.50", "#F59E0B", "01/04/2026", "ABRIL"],
+    ["ALICIA QUINONES", "DURANGO DIAZ MAGALI JANET", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.19.70", "#FF8C42", "01/04/2026", "ABRIL"],
+    ["ANALIZ CASTILLO", "Puntotec Import Peru Jd E.I.R.L.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.2.00", "#F59E0B", "01/04/2026", "ABRIL"],
+    ["MELISSA VASQUEZ", "Bartolo Rivera Estanislao Pedro", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.90.00", "#FF6B6B", "01/04/2026", "ABRIL"],
+    ["FRANCO ROUILLON", "MORE VILCHEZ CRISTOBAL", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["CRISTIAN HUAMAN", "Rocio Ruth Piro Asado", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00C9FF", "01/05/2026", "MAYO"],
+    ["ALICIA QUINONES", "SERRANO FALCON ELCIRA CRISTINA", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF8C42", "01/05/2026", "MAYO"],
+    ["ALICIA QUINONES", "Jesus Elizabeth Hidalgo Cueva", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF8C42", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "Nima Rosas Yurico Teresa", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "Asmat Velarde Shirley Fiorella", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "ANDRADE DIESTRO GIOVANNA MIRIAM", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["ROCK LLANOS", "Franco Susanibar Daisy Giovanna", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#84CC16", "01/05/2026", "MAYO"],
+    ["YASMIN CHECA", "Hortencia Catalina Requena Auqui", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#888780", "01/05/2026", "MAYO"],
+    ["ANALIZ CASTILLO", "Consorcio Empresarial Solano S.A.C.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#F59E0B", "01/05/2026", "MAYO"],
+    ["ANALIZ CASTILLO", "Consorcio Empresarial Solano S.A.C.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#F59E0B", "01/05/2026", "MAYO"],
+    ["CRISTIAN HUAMAN", "TOLENTINO LUCIANO ELVA LUZ", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00C9FF", "01/05/2026", "MAYO"],
+    ["OLIVER LOPEZ", "Salazar Bedoya Rosario Marlene", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#4ECDC4", "01/05/2026", "MAYO"],
+    ["ROCK LLANOS", "Jose Barrera Garrido Sthefany", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#84CC16", "01/05/2026", "MAYO"],
+    ["ALICIA QUINONES", "ROJAS DAMIAN DIEGO ARMANDO", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF8C42", "01/05/2026", "MAYO"],
+    ["YASMIN CHECA", "Victoria Consuelo Fernandez Olivera", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#888780", "01/05/2026", "MAYO"],
+    ["ANDREA SOTO", "MERINO BUSTIOS CLAUDIA ANA", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FFD93D", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "GLENY DORA ORTEGA PADILLA", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+    ["CRISTIAN HUAMAN", "Abelardo Erick Morales Alpaca", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00C9FF", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "Analice Delfina Rengifo Panduro", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+    ["ROCK LLANOS", "Javier Pena Meza Jose", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#84CC16", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "OJEDA ZUNIGA DALIA RUBI", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["OLIVER LOPEZ", "NELLY MARTHA AGUIRRE YAULIS", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#4ECDC4", "01/05/2026", "MAYO"],
+    ["ANALIZ CASTILLO", "GIOVANNA KARINA MELENDEZ CHAVEZ", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#F59E0B", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "BRACO COMPANY S.A.C.", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "BRACO COMPANY S.A.C.", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["ANALIZ CASTILLO", "CURE AGUIRRE YENNY JAZMIN", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#F59E0B", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "CHRISMARKET E.I.R.L.", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "CHRISMARKET E.I.R.L.", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "CHRISMARKET E.I.R.L.", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+    ["MELISA LLACCHUAS", "Marlon Victor Vasquez Castro", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B9D", "01/05/2026", "MAYO"],
+    ["ALICIA QUINONES", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF8C42", "01/05/2026", "MAYO"],
+    ["ANALIZ CASTILLO", "AQUINO RODRIGUEZ LUIS ANTONIO", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F59E0B", "01/05/2026", "MAYO"],
+    ["ROSA TORRES", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#6BCF7F", "01/05/2026", "MAYO"],
+    ["ROSA TORRES", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#6BCF7F", "01/05/2026", "MAYO"],
+    ["MELISSA VASQUEZ", "Zoila Del Carmen Chuquizuta Llaja", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#FF6B6B", "01/05/2026", "MAYO"],
+    ["ALICIA QUINONES", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF8C42", "01/05/2026", "MAYO"],
+    ["OLIVER LOPEZ", "AQUINO RODRIGUEZ EMERSON", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#4ECDC4", "01/05/2026", "MAYO"],
+    ["MELISSA VASQUEZ", "Evelin Esthela Hurtado Soto", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#FF6B6B", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "VEGA CAPCHA VICTOR ARLES", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["OLIVER LOPEZ", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#4ECDC4", "01/05/2026", "MAYO"],
+    ["ROSA TORRES", "Hidalgo Cueva Jesus Elizabeth", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#6BCF7F", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "Cantalicio Zevallos Dina Lucia", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["YASMIN CHECA", "Gina Janeth Alvarado Dextre", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#888780", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "MIO BOCANEGRA LUISA PATRICIA", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "Carlos Alberto Huaman Chacha", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "Aurea Barrientos Palomino De Luna", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["FRANCO ROUILLON", "Morotes Tello Frank Antoni", "<span style=\"background:rgba(245,158,11,.12);color:#F59E0B;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">PENDIENTE DE ACTIVAR</span>", "S/.0.00", "#F97316", "01/05/2026", "MAYO"],
+    ["PATRICIA ASTORGA", "Erick Freddy Yataco Vasquez", "<span style=\"background:rgba(0,229,160,.12);color:#00E5A0;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px\">ACTIVACION ACTUAL</span>", "S/.0.00", "#00E5A0", "01/05/2026", "MAYO"],
+];
+
   
   let _fr=ROWS.filter(row=>inTeam(row[0]));
   var _qhf=document.getElementById('qrHunterFilt');
@@ -2284,11 +2516,12 @@ function rC(){
     '<th style="'+THR+';width:52px">May-19</th>'+
     '<th style="'+THR+';width:52px">May-21</th>'+
     '<th style="'+THC+';width:52px">May-25</th>'+
+    '<th style="'+THC+';width:52px">May-26</th>'+
     '<th style="'+THP+';width:58px">Proy</th>';
 
   var tb=document.getElementById('cTB');
   if(!rows.length){
-    tb.innerHTML='<tr><td colspan="17" style="text-align:center;color:#718096;padding:24px;font-size:12px">Sin resultados</td></tr>';
+    tb.innerHTML='<tr><td colspan="18" style="text-align:center;color:#718096;padding:24px;font-size:12px">Sin resultados</td></tr>';
     return;
   }
 
